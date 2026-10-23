@@ -1,0 +1,54 @@
+---
+import { t, routes, languages, type Lang, type PageKey } from '../i18n';
+import { MISSION_CLOCK_TARGET, MISSION_CLOCK_TAG } from '../config';
+
+interface Props { lang: Lang; page: PageKey }
+const { lang, page } = Astro.props;
+const s = t(lang);
+const home = routes.home[lang];
+const sections = [
+  ['about', 'qui-som'],
+  ['mission', 'missio'],
+  ['roadmap', 'full-de-ruta'],
+  ['how', 'com-treballem'],
+  ['join', 'uneix-te'],
+  ['contact', 'contacte'],
+] as const;
+/** A les pàgines legals els enllaços han d'apuntar a la portada de la llengua. */
+const href = (id: string) => (page === 'home' ? `#${id}` : `${home}#${id}`);
+---
+<header class="hdr" id="hdr">
+  <div class="nav">
+    <a class="brand" href={home}>
+      <span class="mk" aria-hidden="true"></span><b>ACSAR</b><em>{s.nav.tagline}</em>
+    </a>
+
+    <ul>
+      {sections.map(([key, id]) => (
+        <li><a class="lnk" href={href(id)}>{s.nav[key]}</a></li>
+      ))}
+    </ul>
+
+    <span class="clk" id="clk" data-target={MISSION_CLOCK_TARGET} data-tag={MISSION_CLOCK_TAG} aria-hidden="true"></span>
+
+    <nav class="lang" aria-label={s.nav.language}>
+      {(Object.keys(languages) as Lang[]).map((l, i) => (
+        <>
+          {i > 0 && <i aria-hidden="true">·</i>}
+          <a href={routes[page][l]} hreflang={l} {...(l === lang ? { 'aria-current': 'true' } : {})}>
+            {languages[l]}
+          </a>
+        </>
+      ))}
+    </nav>
+
+    <button class="burger" id="burger" aria-label={s.nav.menu} aria-expanded="false" aria-controls="mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="prog" aria-hidden="true"><i id="prog"></i></div>
+</header>
+
+<div class="mobile" id="mobile">
+  {sections.map(([key, id]) => <a href={href(id)}>{s.nav[key]}</a>)}
+</div>

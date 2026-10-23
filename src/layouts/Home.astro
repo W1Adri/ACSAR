@@ -1,0 +1,27 @@
+---
+import Base from './Base.astro';
+import Hero from '../components/Hero.astro';
+import Ticker from '../components/Ticker.astro';
+import About from '../components/About.astro';
+import Mission from '../components/Mission.astro';
+import Positioning from '../components/Positioning.astro';
+import Roadmap from '../components/Roadmap.astro';
+import How from '../components/How.astro';
+import Join from '../components/Join.astro';
+import Contact from '../components/Contact.astro';
+import type { Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<Base lang={lang} page="home">
+  <Hero lang={lang} />
+  <Ticker lang={lang} />
+  <About lang={lang} />
+  <Mission lang={lang} />
+  <Positioning lang={lang} />
+  <Roadmap lang={lang} />
+  <How lang={lang} />
+  <Join lang={lang} />
+  <Contact lang={lang} />
+</Base>

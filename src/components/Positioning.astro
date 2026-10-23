@@ -1,0 +1,22 @@
+---
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang).positioning;
+---
+<section class="statement">
+  <div class="wrap">
+    <p class="kicker rv"><b>03.1</b><span>{s.kicker}</span></p>
+    <q class="rv">{s.quotePre}<em>{s.quoteEm}</em>{s.quotePost}</q>
+    <p class="src rv">{s.src}</p>
+    <div class="claims">
+      {s.claims.map((c, i) => (
+        <div class="claim rv">
+          <span class="n">{String(i + 1).padStart(2, '0')}</span>
+          <b>{c.b}</b>
+          <p>{c.p}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

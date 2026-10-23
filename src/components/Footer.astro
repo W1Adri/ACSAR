@@ -1,0 +1,27 @@
+---
+import { t, routes, type Lang } from '../i18n';
+import { EMAIL } from '../config';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const year = new Date().getFullYear();
+---
+<footer class="foot-wrap">
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <img src="/img/acsar-phoenix.png" alt="" width="64" height="64" loading="lazy" />
+        <div><b>ACSAR</b><span>{s.footer.motto}</span></div>
+      </div>
+      <nav>
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        <a href={routes.legal[lang]}>{s.footer.legal}</a>
+        <a href={routes.privacy[lang]}>{s.footer.privacy}</a>
+      </nav>
+    </div>
+    <div class="copy">
+      <span>© {year} {s.footer.rights}</span>
+      <span>{s.footer.place}</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,16 @@
+---
+import Base from './Base.astro';
+import type { Lang, PageKey } from '../i18n';
+
+interface Props {
+  frontmatter: { lang: Lang; page: PageKey; title: string; subtitle: string; description?: string };
+}
+const { frontmatter: f } = Astro.props;
+---
+<Base lang={f.lang} page={f.page} title={`${f.title} — ACSAR`} description={f.description}>
+  <article class="legal">
+    <h1>{f.title}</h1>
+    <p class="sub">{f.subtitle}</p>
+    <slot />
+  </article>
+</Base>

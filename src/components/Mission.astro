@@ -1,0 +1,48 @@
+---
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang).mission;
+---
+<section id="missio" class="mission">
+  <div class="wrap">
+    <p class="kicker rv"><b>03</b><span>{s.kicker}</span></p>
+
+    <div class="mission-top">
+      <div>
+        <h2 class="rv" set:html={s.h2} />
+        <p class="lead rv" style="margin-top:1.75rem">{s.p1}</p>
+        <p class="rv dim">{s.p2}</p>
+        <p class="rv dim">{s.p3}</p>
+      </div>
+      <div class="patch rv">
+        <span class="halo" aria-hidden="true"></span>
+        <span class="ring r3" aria-hidden="true"></span>
+        <span class="ring r2" aria-hidden="true"></span>
+        <span class="ring r1" aria-hidden="true"></span>
+        <img src="/img/clau-patch.png" alt={s.patchAlt} width="760" height="760" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:clamp(3rem,7vw,5rem)">
+      <h2 class="rv" set:html={s.h2b} />
+      <div>
+        <p class="rv dim">
+          {s.pb1pre}<b class="strong">{s.pb1s1}</b>{s.pb1mid}<b class="strong">{s.pb1s2}</b>{s.pb1post}
+        </p>
+        <p class="rv dim">{s.pb2pre}<b class="strong">{s.pb2s}</b>{s.pb2post}</p>
+        <p class="note rv"><b class="strong">{s.noteLabel}</b> {s.note}</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      {s.cards.map((c, i) => (
+        <div class="card hud rv">
+          <p class="lbl">{c.lbl} <i>{String(i + 1).padStart(2, '0')}</i></p>
+          <p class="val">{c.val} {c.sub && <em>{c.sub}</em>}</p>
+          <p>{c.p}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

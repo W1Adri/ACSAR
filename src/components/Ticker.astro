@@ -1,0 +1,13 @@
+---
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const items = t(lang).ticker;
+---
+<div class="ticker" aria-hidden="true">
+  <ul>
+    {[...items, ...items].map((i) => (
+      <li><b>{i.k}</b>{i.v}</li>
+    ))}
+  </ul>
+</div>
