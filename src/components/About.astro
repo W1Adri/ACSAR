@@ -1,0 +1,29 @@
+---
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang).about;
+---
+<section id="qui-som">
+  <div class="wrap">
+    <p class="kicker rv"><b>02</b><span>{s.kicker}</span></p>
+    <div class="split">
+      <h2 class="rv" set:html={s.h2} />
+      <div>
+        <!-- TODO: esmentar la universitat o l'escola requereix permís exprés. Mantingut entre claudàtors. -->
+        <p class="lead rv">{s.p1}</p>
+        <p class="rv dim">{s.p2}</p>
+        <p class="rv dim">{s.p3pre}<b class="strong">{s.p3strong}</b>{s.p3post}</p>
+        <p class="rv mono" style="color:var(--color-faint);margin-top:2rem">{s.hq}</p>
+      </div>
+    </div>
+    <div class="stats rv">
+      {s.stats.map((st) => (
+        <div class="stat">
+          <b data-num={st.n} data-pre={st.pre}>{st.v}</b>
+          <span>{st.l}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

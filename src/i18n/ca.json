@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "title": "ACSAR — CLAU, claus quàntiques des de l'òrbita",
+    "description": "ACSAR és una associació d'estudiants de Castelldefels que desenvolupa CLAU, un CubeSat 6U de distribució quàntica de claus preseleccionat per al Design Booster 3 de l'ESA.",
+    "ogDescription": "CubeSat 6U de distribució quàntica de claus (QKD, protocol BB84) desenvolupat per estudiants."
+  },
+  "nav": {
+    "skip": "Salta al contingut",
+    "tagline": "MISSIÓ CLAU",
+    "about": "Qui som",
+    "mission": "Missió CLAU",
+    "roadmap": "Full de ruta",
+    "how": "Com treballem",
+    "join": "Uneix-te",
+    "contact": "Contacte",
+    "menu": "Menú",
+    "language": "Idioma"
+  },
+  "hero": {
+    "kicker": "Associació de Comunicacions Satel·litals Avançades i Resilients",
+    "line1": "Claus quàntiques",
+    "line2": "des de l'òrbita",
+    "lead": "CLAU és un CubeSat 6U que porta la distribució quàntica de claus a l'espai: un canal òptic per generar claus impossibles d'interceptar sense deixar rastre.",
+    "cta1": "Coneix la missió",
+    "cta2": "Contacte",
+    "statusLabel": "Estat",
+    "status": "preseleccionats",
+    "programLabel": "Programa",
+    "program": "ESA Fly Your Satellite! Design Booster 3",
+    "trainingLabel": "Setmana de formació",
+    "training": "ESTEC · 16–20 nov 2026",
+    "groundStation": "ESTACIÓ DE TERRA · CASTELLDEFELS"
+  },
+  "ticker": [
+    { "k": "Plataforma", "v": "CubeSat 6U" },
+    { "k": "Protocol", "v": "BB84" },
+    { "k": "Enllaç", "v": "Òptic quàntic + RF clàssic" },
+    { "k": "Òrbita", "v": "LEO" },
+    { "k": "Segment de terra", "v": "Campus del Baix Llobregat" },
+    { "k": "Marc", "v": "Alineat amb EuroQCI" },
+    { "k": "Equip", "v": "+20 estudiants · universitats europees" },
+    { "k": "Mètode", "v": "Enginyeria concurrent · sprints" }
+  ],
+  "about": {
+    "kicker": "Qui som",
+    "h2": "Una associació<br>d'estudiants que<br>construeix satèl·lits",
+    "p1": "ACSAR és una associació d'estudiants amb seu al Campus del Baix Llobregat, a Castelldefels [vinculació universitària pendent de permís]. Dissenyem, construïm i operem sistemes de comunicacions espacials avançats i resilients.",
+    "p2": "Som una cinquantena de persones i una comunitat internacional: una part de l'equip ve de fora de l'Estat. Treballem amb metodologia d'enginyeria concurrent, requisits traçables i revisions tècniques reals, el mateix marc amb què es porta una missió professional.",
+    "p3pre": "ACSAR funciona també com a ",
+    "p3strong": "empresa júnior",
+    "p3post": ": podem oferir serveis d'enginyeria a empreses del sector i reinvertim els ingressos en les missions, el material i la formació de l'equip.",
+    "hq": "Seu · Espai D7-010 · Edifici D7 · Campus del Baix Llobregat · Castelldefels",
+    "stats": [
+      { "v": "~50", "n": 50, "pre": "~", "l": "Membres" },
+      { "v": "+20", "n": 20, "pre": "+", "l": "A la missió CLAU" },
+      { "v": "7", "n": 7, "pre": "", "l": "Subsistemes" },
+      { "v": "[N]", "l": "Nacionalitats" }
+    ]
+  },
+  "mission": {
+    "kicker": "Missió CLAU",
+    "h2": "CubeSat Làser<br>per a Aplicacions<br>Ultrasegures",
+    "p1": "Tota comunicació xifrada depèn d'una clau secreta compartida. Si algú l'intercepta mentre viatja, la conversa deixa de ser secreta i ningú se n'assabenta.",
+    "p2": "La distribució quàntica de claus (QKD) resol aquest problema amb física, no amb matemàtiques: la clau viatja codificada en partícules de llum individuals. Mesurar una partícula quàntica l'altera, de manera que qualsevol intent d'escoltar introdueix errors detectables. Les dues parts comproven aquests errors i, si n'hi ha de més del compte, descarten la clau i en generen una altra.",
+    "p3": "Per això diem «ultrasegures»: la seguretat no depèn de la dificultat de resoldre un problema matemàtic, sinó de les lleis de la física. Un ordinador quàntic futur no la trenca.",
+    "patchAlt": "Emblema de la missió CLAU: una clau daurada entre dues cares clàssiques sobre fons estelat",
+    "h2b": "Què fa<br>el satèl·lit",
+    "pb1pre": "CLAU és un CubeSat de 6 unitats en òrbita baixa que porta dos enllaços complementaris. El ",
+    "pb1s1": "canal òptic quàntic",
+    "pb1mid": " envia els estats de llum que generen la clau cap a una estació de terra. L'",
+    "pb1s2": "enllaç clàssic per radiofreqüència",
+    "pb1post": " s'encarrega de la telemetria, del control del satèl·lit i de la part pública del protocol, en què les dues parts comparen notes per destil·lar la clau definitiva sense revelar-la.",
+    "pb2pre": "El protocol implementat és ",
+    "pb2s": "BB84",
+    "pb2post": ", l'estàndard de referència de la distribució quàntica de claus. Un pas per sobre del satèl·lit només dura uns minuts: tot el disseny —apuntació, estabilitat, energia i tractament de dades— està condicionat per aprofitar aquesta finestra.",
+    "noteLabel": "Nota.",
+    "note": "El disseny de la càrrega útil és confidencial. En aquesta web el canal quàntic es descriu només a alt nivell.",
+    "cards": [
+      { "lbl": "Plataforma", "val": "6U", "sub": "CubeSat", "p": "Sis unitats de 10 cm de costat: la classe mínima viable per allotjar el terminal òptic i la precisió d'apuntació que necessita." },
+      { "lbl": "Protocol", "val": "BB84", "sub": "", "p": "L'estàndard de referència de la distribució quàntica de claus, formulat el 1984 i validat en enllaços reals." },
+      { "lbl": "Enllaços", "val": "Òptic", "sub": "+ RF", "p": "Canal òptic quàntic per a la clau i enllaç clàssic de radiofreqüència per a telemetria i destil·lació." },
+      { "lbl": "Òrbita", "val": "LEO", "sub": "", "p": "Òrbita terrestre baixa, amb l'estació de terra al Campus del Baix Llobregat. [paràmetres orbitals per confirmar]" }
+    ]
+  },
+  "positioning": {
+    "kicker": "Per què importa",
+    "quotePre": "Cap CubeSat ha demostrat encara ",
+    "quoteEm": "generació de clau segura",
+    "quotePost": " en òrbita.",
+    "src": "És un objectiu obert del sector, i és el que persegueix CLAU.",
+    "claims": [
+      { "b": "Primer CubeSat de QKD liderat per una associació universitària a l'Estat espanyol", "p": "El desenvolupen estudiants, amb el mateix rigor d'enginyeria que una missió institucional." },
+      { "b": "El 6U com a classe mínima viable", "p": "Per sota d'aquesta mida no hi caben el terminal òptic i el control d'apuntació que exigeix un enllaç quàntic." },
+      { "b": "Alineat amb l'EuroQCI", "p": "La infraestructura europea de comunicació quàntica preveu un segment espacial; CLAU treballa en aquesta direcció des de l'escala CubeSat." }
+    ]
+  },
+  "roadmap": {
+    "kicker": "Full de ruta",
+    "h2": "De la taula òptica<br>a l'òrbita",
+    "lead": "CLAU ha estat preseleccionat per al Design Booster 3 del programa Fly Your Satellite! de l'Agència Espacial Europea. Aquest és el calendari fins al tancament del programa.",
+    "items": [
+      { "date": "16–20 nov 2026", "tag": "Preseleccionats", "h3": "Setmana de formació a l'ESTEC", "p": "L'equip assisteix a la training week del Design Booster 3 al centre tècnic de l'ESA a Noordwijk, als Països Baixos, amb la resta de missions preseleccionades.", "now": true },
+      { "date": "Desembre 2026", "tag": "Fita", "h3": "Decisió final de selecció", "p": "L'ESA comunica quines missions continuen dins del programa després de la setmana de formació." },
+      { "date": "Fins febrer 2027", "tag": "Laboratori", "h3": "Experiments de laboratori", "p": "Validació del principi de funcionament en banc òptic controlat, amb mesures repetibles i caracterització dels components." },
+      { "date": "Des d'inicis de 2027", "tag": "Enginyeria", "h3": "Disseny detallat del satèl·lit", "p": "Definició completa dels subsistemes, pressupostos de massa, potència i enllaç, pla d'integració i pla de verificació." },
+      { "date": "Fins mitjans de 2027", "tag": "Camp", "h3": "Experiments en espai lliure", "p": "L'enllaç surt del laboratori: propagació a l'aire lliure entre dos emplaçaments, amb turbulència i llum ambient reals." },
+      { "date": "Juny 2028", "tag": "Programa", "h3": "Fi del Design Booster", "p": "Tancament del programa amb el disseny de la missió consolidat i documentat." }
+    ]
+  },
+  "how": {
+    "kicker": "Com treballem",
+    "h2": "Enginyeria<br>concurrent",
+    "lead": "Més de vint estudiants de diverses universitats europees treballen en CLAU, organitzats per subsistemes i sobre un model comú de la missió.",
+    "p": "Cada subsistema té responsables, documentació pròpia i requisits traçables fins als objectius de la missió. Res es dona per tancat fins que es pot verificar.",
+    "subs": [
+      { "code": "EPS", "name": "Energia", "p": "Generació solar, emmagatzematge i distribució de potència al llarg de l'òrbita." },
+      { "code": "ADCS", "name": "Control d'actitud", "p": "Determinació i control de l'orientació: apuntar el satèl·lit amb la precisió que exigeix l'enllaç òptic." },
+      { "code": "OBC", "name": "Ordinador de bord", "p": "Programari de vol, gestió de modes, maneig de dades i supervisió de la salut del satèl·lit." },
+      { "code": "RF", "name": "Radiofreqüència", "p": "Enllaç clàssic de telecomandament i telemetria, i suport a la part pública del protocol." },
+      { "code": "STR", "name": "Estructura", "p": "Configuració mecànica del 6U, interfícies, rigidesa i control tèrmic." },
+      { "code": "GS", "name": "Segment de terra", "p": "Estació receptora, operacions, seguiment del satèl·lit i processament de les dades rebudes." },
+      { "code": "P/L", "name": "Càrrega útil", "p": "El canal òptic quàntic. Els detalls de disseny són confidencials." }
+    ],
+    "cometH": "Metodologia COMET",
+    "cometP": "Treballem amb l'enfocament d'enginyeria concurrent de l'ESA: tots els subsistemes iteren alhora sobre un mateix model de la missió. Una decisió de massa, de potència o d'apuntació es propaga immediatament a la resta i se'n veu l'impacte al moment, en comptes de descobrir-lo tres mesos més tard.",
+    "sprintH": "Sprints àgils",
+    "sprintP": "El treball s'organitza en sprints curts amb objectius verificables i revisions obertes a tot l'equip. Això permet que gent amb càrrega lectiva molt diferent pugui contribuir sense bloquejar la resta, i que l'estat real del projecte sigui visible en tot moment."
+  },
+  "join": {
+    "kicker": "Uneix-te · Col·labora",
+    "h2": "Hi ha lloc<br>per a tu",
+    "lead": "Una missió espacial necessita molt més que enginyeria aeroespacial. Si vols participar, escriu-nos i parlem.",
+    "cols": [
+      { "h3": "Estudiants", "p": "Busquem gent d'enginyeria, física, informàtica i disciplines afins, i també qui vulgui ajudar en comunicació, gestió o relacions institucionals. No cal experiència prèvia en espai: cal constància i ganes d'aprendre fent.", "link": "Vull participar" },
+      { "h3": "Empreses", "p": "Com a empresa júnior oferim serveis d'enginyeria en comunicacions i sistemes espacials, i col·laborem en projectes de R+D. També acollim reptes tècnics concrets com a treballs de l'equip.", "link": "Parlem de projectes" },
+      { "h3": "Patrocinadors", "p": "El suport econòmic i material fa possible el maquinari, els assajos de laboratori i els viatges tècnics de la missió. Les contrapartides per a patrocinadors estan [per definir].", "link": "Dona suport a CLAU" }
+    ]
+  },
+  "contact": {
+    "kicker": "Contacte",
+    "h2": "Escriu-nos",
+    "hqLabel": "Seu",
+    "hq1": "Espai D7-010 · Edifici D7",
+    "hq2": "Campus del Baix Llobregat",
+    "hq3": "08860 Castelldefels · Barcelona",
+    "topics": "Estudiants · Empreses · Patrocini · Premsa",
+    "fName": "Nom",
+    "fEmail": "Correu",
+    "fSubject": "Assumpte",
+    "fMessage": "Missatge",
+    "send": "Enviar",
+    "privacyPre": "En enviar aquest formulari acceptes la ",
+    "privacyLink": "política de privacitat",
+    "subject": "Contacte des d'acsar.tech"
+  },
+  "footer": {
+    "motto": "Sic · Semper · Astralis",
+    "legal": "Avís legal",
+    "privacy": "Política de privacitat",
+    "rights": "ACSAR — Associació de Comunicacions Satel·litals Avançades i Resilients",
+    "place": "Campus del Baix Llobregat · Castelldefels"
+  }
+}

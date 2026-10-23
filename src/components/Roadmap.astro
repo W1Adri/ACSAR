@@ -1,0 +1,27 @@
+---
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang).roadmap;
+---
+<section id="full-de-ruta">
+  <div class="wrap">
+    <p class="kicker rv"><b>04</b><span>{s.kicker}</span></p>
+    <div class="split" style="margin-bottom:clamp(1rem,3vw,2rem)">
+      <h2 class="rv" set:html={s.h2} />
+      <p class="lead rv">{s.lead}</p>
+    </div>
+    <ol class="log">
+      {s.items.map((it) => (
+        <li class={`rv${it.now ? ' now' : ''}`}>
+          <time><i></i>{it.date}</time>
+          <div>
+            <span class="tag">{it.tag}</span>
+            <h3>{it.h3}</h3>
+            <p>{it.p}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

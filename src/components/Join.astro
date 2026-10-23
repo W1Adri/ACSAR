@@ -1,0 +1,25 @@
+---
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang).join;
+---
+<section id="uneix-te" class="join">
+  <div class="wrap">
+    <p class="kicker rv"><b>06</b><span>{s.kicker}</span></p>
+    <div class="split" style="margin-bottom:clamp(1rem,3vw,2rem)">
+      <h2 class="rv" set:html={s.h2} />
+      <p class="lead rv">{s.lead}</p>
+    </div>
+    <div class="cols">
+      {s.cols.map((c, i) => (
+        <div class="col rv">
+          <span class="n">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{c.h3}</h3>
+          <p>{c.p}</p>
+          <a class="tlink" href="#contacte">{c.link} →</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

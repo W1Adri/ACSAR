@@ -1,0 +1,31 @@
+---
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang).how;
+---
+<section id="com-treballem">
+  <div class="wrap">
+    <p class="kicker rv"><b>05</b><span>{s.kicker}</span></p>
+    <div class="split" style="margin-bottom:clamp(2.5rem,6vw,4rem)">
+      <h2 class="rv" set:html={s.h2} />
+      <div>
+        <p class="lead rv">{s.lead}</p>
+        <p class="rv dim">{s.p}</p>
+      </div>
+    </div>
+    <div class="subs rv">
+      {s.subs.map((sub) => (
+        <div class="sub">
+          <div class="top"><span>{sub.code}</span><i class="led"></i></div>
+          <b>{sub.name}</b>
+          <p>{sub.p}</p>
+        </div>
+      ))}
+    </div>
+    <div class="two">
+      <div class="rv"><h3>{s.cometH}</h3><p>{s.cometP}</p></div>
+      <div class="rv"><h3>{s.sprintH}</h3><p>{s.sprintP}</p></div>
+    </div>
+  </div>
+</section>

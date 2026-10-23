@@ -1,0 +1,184 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t, routes, hreflang, languages, type Lang, type PageKey } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+  title?: string;
+  description?: string;
+}
+const { lang, page, title, description } = Astro.props;
+const s = t(lang);
+const pageTitle = title ?? s.meta.title;
+const pageDesc = description ?? s.meta.description;
+const canonical = new URL(routes[page][lang], Astro.site);
+const ogImage = new URL('/img/og.png', Astro.site);
+---
+<!DOCTYPE html>
+<html lang={hreflang[lang]}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDesc} />
+  <link rel="canonical" href={canonical} />
+  {(Object.keys(languages) as Lang[]).map((l) => (
+    <link rel="alternate" hreflang={hreflang[l]} href={new URL(routes[page][l], Astro.site)} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={new URL(routes[page].ca, Astro.site)} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ACSAR" />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={s.meta.ogDescription} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#05080F" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Barlow:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <a class="skip" href="#main">{s.nav.skip}</a>
+  <div class="grid-lines" aria-hidden="true"><i></i></div>
+  <div class="fx grain" aria-hidden="true"></div>
+  <div class="fx vig" aria-hidden="true"></div>
+
+  <Nav lang={lang} page={page} />
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <Footer lang={lang} />
+
+  <script>
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* capçalera: fons opac + barra de progrés */
+    const hdr = document.getElementById('hdr');
+    const prog = document.getElementById('prog');
+    const onScroll = () => {
+      hdr?.classList.toggle('solid', scrollY > 40);
+      const m = document.documentElement.scrollHeight - innerHeight;
+      if (prog) prog.style.width = (m > 0 ? (scrollY / m) * 100 : 0) + '%';
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* menú mòbil */
+    const burger = document.getElementById('burger');
+    const mobile = document.getElementById('mobile');
+    burger?.addEventListener('click', () => {
+      const open = mobile?.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(!!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobile?.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => {
+        mobile.classList.remove('open');
+        burger?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }),
+    );
+
+    /* secció activa al menú (només a la portada: a les pàgines legals
+       els enllaços són rutes completes, no àncores) */
+    const links = [...document.querySelectorAll<HTMLAnchorElement>('.nav a.lnk')].filter((a) =>
+      (a.getAttribute('href') || '').startsWith('#'),
+    );
+    const secs = links
+      .map((a) => document.querySelector(a.getAttribute('href')!))
+      .filter(Boolean) as Element[];
+    if (secs.length) {
+      const spy = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting)
+              links.forEach((l) =>
+                l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id),
+              );
+          }),
+        { rootMargin: '-45% 0px -50% 0px' },
+      );
+      secs.forEach((s) => spy.observe(s));
+    }
+
+    /* aparicions i comptadors */
+    const countUp = (el: HTMLElement) => {
+      const to = Number(el.dataset.num);
+      const pre = el.dataset.pre || '';
+      let t0: number | null = null;
+      const step = (ts: number) => {
+        t0 = t0 ?? ts;
+        const k = Math.min(1, (ts - t0) / 1100);
+        el.textContent = pre + Math.round(to * (1 - Math.pow(1 - k, 3)));
+        if (k < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if (reduce) {
+      document.querySelectorAll('.rv').forEach((e) => e.classList.add('in'));
+      document.querySelectorAll('.hero h1 span').forEach((e) => e.classList.add('in'));
+    } else {
+      const io = new IntersectionObserver(
+        (es, o) =>
+          es.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target as HTMLElement;
+            const sibs = [...(el.parentElement?.children ?? [])].filter((c) =>
+              c.classList.contains('rv'),
+            );
+            el.style.transitionDelay = Math.max(0, sibs.indexOf(el)) * 70 + 'ms';
+            el.classList.add('in');
+            el.querySelectorAll<HTMLElement>('[data-num]').forEach(countUp);
+            o.unobserve(el);
+          }),
+        { rootMargin: '0px 0px -12% 0px' },
+      );
+      document.querySelectorAll('.rv').forEach((e) => io.observe(e));
+      addEventListener('load', () =>
+        document
+          .querySelectorAll('.hero h1 span')
+          .forEach((s, i) => setTimeout(() => s.classList.add('in'), 180 + i * 220)),
+      );
+      setTimeout(
+        () => document.querySelectorAll('.hero h1 span').forEach((s) => s.classList.add('in')),
+        1600,
+      );
+    }
+
+    /* rellotge de missió del menú */
+    const clk = document.getElementById('clk');
+    if (clk?.dataset.target) {
+      const target = new Date(clk.dataset.target).getTime();
+      const tag = clk.dataset.tag || '';
+      const p = (n: number, l: number) => String(n).padStart(l, '0');
+      const tick = () => {
+        let d = Math.max(0, target - Date.now()) / 1000;
+        const dd = Math.floor(d / 86400);
+        d -= dd * 86400;
+        const hh = Math.floor(d / 3600),
+          mm = Math.floor((d % 3600) / 60);
+        clk.innerHTML = `T−${p(dd, 3)}d ${p(hh, 2)}h ${p(mm, 2)}m <b>${tag}</b>`;
+      };
+      tick();
+      setInterval(tick, 30000);
+    }
+  </script>
+</body>
+</html>

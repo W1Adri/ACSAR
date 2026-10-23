@@ -1,0 +1,51 @@
+---
+import { t, routes, type Lang } from '../i18n';
+import { EMAIL, FORMSPREE_ENDPOINT } from '../config';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang).contact;
+---
+<section id="contacte">
+  <div class="wrap">
+    <p class="kicker rv"><b>07</b><span>{s.kicker}</span></p>
+    <div class="contact-grid">
+      <div>
+        <h2 class="rv" style="margin-bottom:1.5rem">{s.h2}</h2>
+        <a class="mailto rv" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        <address class="rv">
+          <span class="mono">{s.hqLabel}</span>
+          {s.hq1}<br />{s.hq2}<br />{s.hq3}
+        </address>
+        <p class="rv mono" style="color:var(--color-faint);margin-top:2rem;line-height:2">{s.topics}</p>
+      </div>
+
+      <!-- TODO: posa l'endpoint real de Formspree a .env (PUBLIC_FORMSPREE_ENDPOINT) -->
+      <form class="rv" action={FORMSPREE_ENDPOINT} method="POST">
+        <div class="field">
+          <label for="f-name">{s.fName}</label>
+          <input id="f-name" name="nom" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="f-email">{s.fEmail}</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="f-subject">{s.fSubject}</label>
+          <input id="f-subject" name="assumpte" type="text" />
+        </div>
+        <div class="field">
+          <label for="f-message">{s.fMessage}</label>
+          <textarea id="f-message" name="missatge" required></textarea>
+        </div>
+        <input type="hidden" name="_subject" value={s.subject} />
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <p class="formnote">
+          {s.privacyPre}<a href={routes.privacy[lang]}>{s.privacyLink}</a>.
+        </p>
+        <div class="btns">
+          <button class="btn" type="submit">{s.send} <span class="ar">→</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

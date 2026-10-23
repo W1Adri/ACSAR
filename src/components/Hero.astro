@@ -1,0 +1,252 @@
+---
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+---
+<section class="hero">
+  <canvas id="sky" data-gs={s.hero.groundStation} aria-hidden="true"></canvas>
+  <div class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+  <div class="wrap">
+    <p class="kicker rv"><b>01</b><span>{s.hero.kicker}</span></p>
+    <h1>
+      <span>{s.hero.line1}</span><span class="thin">{s.hero.line2}</span>
+    </h1>
+    <p class="lead rv">{s.hero.lead}</p>
+    <div class="btns rv">
+      <a class="btn" href="#missio">{s.hero.cta1} <span class="ar">→</span></a>
+      <a class="btn ghost" href="#contacte">{s.hero.cta2}</a>
+    </div>
+    <div class="status mono rv">
+      <span><span class="dot"></span>{s.hero.statusLabel}: {s.hero.status}</span>
+      <span>{s.hero.programLabel}: <b>{s.hero.program}</b></span>
+      <span>{s.hero.trainingLabel}: <b>{s.hero.training}</b></span>
+    </div>
+  </div>
+</section>
+
+<script>
+  /* ------------------------------------------------------------------
+     Escena del hero: limbe terrestre nocturn vist des d'òrbita.
+     Tot es dibuixa per codi (cap imatge externa). El planeta es
+     renderitza una sola vegada fora de pantalla i es volca cada frame.
+     ------------------------------------------------------------------ */
+  const c = document.getElementById('sky') as HTMLCanvasElement | null;
+  if (c) {
+    const x = c.getContext('2d')!;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const GOLD = '233,180,76';
+    const EMBER = '255,90,43';
+    const LABEL = c.dataset.gs || '';
+    let W = 0, H = 0, dpr = 1, R = 0, cx = 0, cy = 0, gx = 0, gy = 0;
+    let stars: { x: number; y: number; z: number; r: number; a: number; s: number; p: number }[] = [];
+    let earth: HTMLCanvasElement;
+    let mx = 0, my = 0, tmx = 0, tmy = 0;
+    const t0 = performance.now();
+
+    function bakeEarth() {
+      const e = document.createElement('canvas');
+      e.width = W * dpr; e.height = H * dpr;
+      const g = e.getContext('2d')!;
+      g.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      // halo atmosfèric fred
+      let a = g.createRadialGradient(cx, cy, R * 0.985, cx, cy, R * 1.085);
+      a.addColorStop(0, 'rgba(150,205,255,.40)');
+      a.addColorStop(0.18, 'rgba(95,155,235,.17)');
+      a.addColorStop(0.5, 'rgba(50,95,185,.055)');
+      a.addColorStop(1, 'rgba(30,60,140,0)');
+      g.fillStyle = a; g.beginPath(); g.arc(cx, cy, R * 1.085, 0, 6.283); g.fill();
+
+      // banda càlida arran d'horitzó
+      a = g.createRadialGradient(cx, cy, R * 0.999, cx, cy, R * 1.016);
+      a.addColorStop(0, 'rgba(255,186,120,.26)');
+      a.addColorStop(1, 'rgba(255,140,70,0)');
+      g.fillStyle = a; g.beginPath(); g.arc(cx, cy, R * 1.016, 0, 6.283); g.fill();
+
+      // cos del planeta
+      g.save(); g.beginPath(); g.arc(cx, cy, R, 0, 6.283); g.clip();
+      g.fillStyle = '#02040A'; g.fillRect(0, 0, W, H);
+      a = g.createRadialGradient(cx, cy, R * 0.9, cx, cy, R);
+      a.addColorStop(0, 'rgba(8,14,26,0)');
+      a.addColorStop(0.72, 'rgba(26,56,104,.14)');
+      a.addColorStop(1, 'rgba(74,132,210,.30)');
+      g.fillStyle = a; g.fillRect(0, 0, W, H);
+
+      // núvols / relleu, contrast molt baix
+      for (let i = 0; i < 34; i++) {
+        const ang = (Math.random() - 0.5) * 0.78;
+        const d = Math.pow(Math.random(), 1.5) * R * 0.055;
+        const px = cx + Math.sin(ang) * (R - d);
+        const py = cy - Math.cos(ang) * (R - d);
+        const rr = R * (0.012 + Math.random() * 0.035);
+        const cg = g.createRadialGradient(px, py, 0, px, py, rr);
+        cg.addColorStop(0, `rgba(120,165,225,${0.025 + Math.random() * 0.04})`);
+        cg.addColorStop(1, 'rgba(120,165,225,0)');
+        g.fillStyle = cg; g.beginPath(); g.arc(px, py, rr, 0, 6.283); g.fill();
+      }
+
+      // llums de ciutat, agrupades en conurbacions
+      const gauss = () => (Math.random() + Math.random() + Math.random() - 1.5) / 1.5;
+      const cl = Array.from({ length: 15 }, () => ({
+        a: (Math.random() - 0.5) * 0.84,
+        d: Math.pow(Math.random(), 1.8) * R * 0.03,
+        s: 0.012 + Math.random() * 0.038,
+        n: (8 + Math.random() * 44) | 0,
+      }));
+      g.shadowColor = 'rgba(255,186,110,.85)';
+      for (const q of cl) {
+        const hx = cx + Math.sin(q.a) * (R - q.d);
+        const hy = cy - Math.cos(q.a) * (R - q.d);
+        const hr = R * q.s * 1.6;
+        const hg = g.createRadialGradient(hx, hy, 0, hx, hy, hr);
+        hg.addColorStop(0, 'rgba(255,180,105,.09)');
+        hg.addColorStop(1, 'rgba(255,180,105,0)');
+        g.shadowBlur = 0; g.fillStyle = hg;
+        g.beginPath(); g.arc(hx, hy, hr, 0, 6.283); g.fill();
+        for (let i = 0; i < q.n; i++) {
+          const a2 = q.a + gauss() * q.s;
+          const d2 = Math.max(0, q.d + gauss() * R * 0.01);
+          const px = cx + Math.sin(a2) * (R - d2);
+          const py = cy - Math.cos(a2) * (R - d2);
+          const near = Math.max(0, 1 - d2 / (R * 0.042));
+          g.shadowBlur = 1.5 + near * 4.5;
+          g.fillStyle = `rgba(255,${(168 + Math.random() * 52) | 0},108,${0.16 + near * 0.55 * Math.random()})`;
+          g.beginPath(); g.arc(px, py, 0.45 + Math.random() * 0.85 * near, 0, 6.283); g.fill();
+        }
+      }
+      for (let i = 0; i < 70; i++) {
+        const a2 = (Math.random() - 0.5) * 0.86;
+        const d2 = Math.pow(Math.random(), 2.4) * R * 0.038;
+        const px = cx + Math.sin(a2) * (R - d2);
+        const py = cy - Math.cos(a2) * (R - d2);
+        g.shadowBlur = 2;
+        g.fillStyle = `rgba(255,180,110,${0.1 + Math.random() * 0.22})`;
+        g.beginPath(); g.arc(px, py, 0.45, 0, 6.283); g.fill();
+      }
+      g.shadowBlur = 0;
+      g.restore();
+
+      // resplendor solar rasant
+      const sa = -0.26;
+      const sx = cx + Math.sin(sa) * R;
+      const sy = cy - Math.cos(sa) * R;
+      const sg = g.createRadialGradient(sx, sy, 0, sx, sy, R * 0.17);
+      sg.addColorStop(0, 'rgba(255,214,170,.20)');
+      sg.addColorStop(0.45, 'rgba(150,190,255,.07)');
+      sg.addColorStop(1, 'rgba(120,170,255,0)');
+      g.fillStyle = sg; g.beginPath(); g.arc(sx, sy, R * 0.17, 0, 6.283); g.fill();
+
+      // horitzó
+      g.beginPath(); g.arc(cx, cy, R, 0, 6.283);
+      g.strokeStyle = 'rgba(188,222,255,.55)'; g.lineWidth = 1; g.stroke();
+      g.beginPath(); g.arc(cx, cy, R * 1.0015, 0, 6.283);
+      g.strokeStyle = 'rgba(120,180,245,.22)'; g.lineWidth = 2.5; g.stroke();
+      return e;
+    }
+
+    function size() {
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      W = c!.clientWidth; H = c!.clientHeight;
+      c!.width = W * dpr; c!.height = H * dpr;
+      x.setTransform(dpr, 0, 0, dpr, 0, 0);
+      R = Math.max(W, H) * 1.38; cx = W * 0.5; cy = H * 0.74 + R;
+      const gang = 0.235;
+      gx = cx + Math.sin(gang) * R; gy = cy - Math.cos(gang) * R;
+      const n = Math.round((W * H) / 5200);
+      stars = Array.from({ length: n }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H * 0.92,
+        z: Math.random() * 0.7 + 0.3,
+        r: Math.random() < 0.88 ? Math.random() * 0.8 + 0.22 : Math.random() * 1.5 + 0.85,
+        a: Math.random() * 0.6 + 0.15,
+        s: Math.random() * 0.8 + 0.15,
+        p: Math.random() * 6.28,
+      }));
+      earth = bakeEarth();
+    }
+
+    addEventListener('mousemove', (e) => {
+      tmx = e.clientX / innerWidth - 0.5;
+      tmy = e.clientY / innerHeight - 0.5;
+    }, { passive: true });
+
+    const PASS = 30;
+    const satAt = (u: number): [number, number] => {
+      const ang = -0.62 + u * 1.24;
+      const alt = R * 1.045;
+      return [cx + Math.sin(ang) * alt, cy - Math.cos(ang) * alt];
+    };
+
+    function draw(now: number) {
+      const t = (now - t0) / 1000;
+      mx += (tmx - mx) * 0.045; my += (tmy - my) * 0.045;
+      x.clearRect(0, 0, W, H);
+
+      for (const s of stars) {
+        const tw = reduce ? 1 : 0.72 + 0.28 * Math.sin(t * s.s + s.p);
+        x.globalAlpha = s.a * tw;
+        x.fillStyle = '#fff';
+        x.beginPath(); x.arc(s.x - mx * 30 * s.z, s.y - my * 20 * s.z, s.r, 0, 6.283); x.fill();
+      }
+      x.globalAlpha = 1;
+      x.drawImage(earth, -mx * 8, -my * 5, W, H);
+
+      // estació de terra
+      const pr = reduce ? 0.4 : (t * 0.55) % 1;
+      x.strokeStyle = `rgba(${GOLD},${0.4 * (1 - pr)})`; x.lineWidth = 1;
+      x.beginPath(); x.arc(gx, gy, 4 + pr * 18, 0, 6.283); x.stroke();
+      x.fillStyle = `rgba(${GOLD},.95)`;
+      x.beginPath(); x.arc(gx, gy, 2.3, 0, 6.283); x.fill();
+      x.strokeStyle = `rgba(${GOLD},.28)`;
+      x.beginPath(); x.moveTo(gx, gy); x.lineTo(gx + 52, gy - 46); x.lineTo(gx + 210, gy - 46); x.stroke();
+      x.fillStyle = 'rgba(168,178,204,.7)';
+      x.font = '500 9.5px "IBM Plex Mono",monospace';
+      x.fillText(LABEL, gx + 58, gy - 52);
+
+      // pas del satèl·lit i enllaç òptic
+      const u = reduce ? 0.42 : (t % PASS) / PASS;
+      const sp = satAt(u);
+      const link = Math.max(0, 1 - Math.abs(sp[0] - gx) / (W * 0.34));
+      if (link > 0.02) {
+        const lg = x.createLinearGradient(sp[0], sp[1], gx, gy);
+        lg.addColorStop(0, `rgba(${GOLD},${0.34 * link})`);
+        lg.addColorStop(1, `rgba(${EMBER},${0.1 * link})`);
+        x.strokeStyle = lg; x.lineWidth = 1;
+        x.beginPath(); x.moveTo(sp[0], sp[1]); x.lineTo(gx, gy); x.stroke();
+        for (let k = 0; k < 3; k++) {
+          const q = (t * 0.5 + k * 0.33) % 1;
+          const px = sp[0] + (gx - sp[0]) * q;
+          const py = sp[1] + (gy - sp[1]) * q;
+          const al = link * Math.sin(Math.PI * q);
+          const hg = x.createRadialGradient(px, py, 0, px, py, 13);
+          hg.addColorStop(0, `rgba(${GOLD},${0.3 * al})`);
+          hg.addColorStop(1, `rgba(${GOLD},0)`);
+          x.fillStyle = hg; x.beginPath(); x.arc(px, py, 13, 0, 6.283); x.fill();
+          x.fillStyle = `rgba(${GOLD},${al})`;
+          x.beginPath(); x.arc(px, py, 1.6, 0, 6.283); x.fill();
+        }
+      }
+
+      x.save(); x.translate(sp[0], sp[1]);
+      const bg = x.createRadialGradient(0, 0, 0, 0, 0, 16);
+      bg.addColorStop(0, 'rgba(242,244,250,.16)');
+      bg.addColorStop(1, 'rgba(242,244,250,0)');
+      x.fillStyle = bg; x.beginPath(); x.arc(0, 0, 16, 0, 6.283); x.fill();
+      x.strokeStyle = 'rgba(242,244,250,.45)'; x.lineWidth = 1;
+      x.beginPath(); x.moveTo(-11, 0); x.lineTo(-4, 0); x.stroke();
+      x.beginPath(); x.moveTo(4, 0); x.lineTo(11, 0); x.stroke();
+      x.fillStyle = 'rgba(242,244,250,.3)';
+      x.fillRect(-11, -2, 7, 4); x.fillRect(4, -2, 7, 4);
+      x.fillStyle = '#F2F4FA'; x.fillRect(-2.6, -3.4, 5.2, 6.8);
+      x.restore();
+
+      if (!reduce) requestAnimationFrame(draw);
+    }
+
+    addEventListener('resize', () => { size(); if (reduce) draw(performance.now()); }, { passive: true });
+    size();
+    reduce ? draw(performance.now()) : requestAnimationFrame(draw);
+  }
+</script>
