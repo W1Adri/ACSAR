@@ -1,131 +1,154 @@
-# ACSAR — Web (català · english · castellano)
+# ACSAR — lloc web
 
-Web de presentación de **ACSAR — Associació de Comunicacions Satel·litals Avançades i Resilients**
-(UPC · EETAC): un CubeSat de distribución cuántica de claves (QKD) con **BB84 + decoy
-states**, candidato a **ESA Fly Your Satellite! Design Booster 3**.
+Web pública de l'**Associació de Comunicacions Satel·litals Avançades i Resilients** i de la
+seva missió **CLAU** (CubeSat Làser per a Aplicacions Ultrasegures).
 
-Es un sitio **estático** (HTML + CSS + JavaScript, sin frameworks ni instalaciones).
-Funciona totalmente **en local**: nada se publica ni se comparte.
+Lloc estàtic fet amb [Astro](https://astro.build) i [Tailwind CSS](https://tailwindcss.com),
+sense backend. Tres idiomes: català (per defecte), castellà i anglès.
 
 ---
 
-## 🚀 Cómo lanzarla
+## Executar en local
 
-Solo necesitas **Python 3** (ya viene instalado en Ubuntu/Linux). Hay tres maneras,
-de la más fácil a la más manual:
-
-### Opción A — Ejecutable (recomendada)
-
-Desde una terminal, dentro de esta carpeta:
+Cal Node 20 o superior (hi ha un `.nvmrc` amb la versió 24).
 
 ```bash
-./start.sh
+npm install          # només la primera vegada
+npm run dev          # servidor de desenvolupament a http://localhost:4321
 ```
 
-Esto:
-1. Arranca un servidor **solo en tu ordenador** (`127.0.0.1`, nadie más puede acceder).
-2. **Abre el navegador automáticamente** en la web.
-3. Si el puerto 8000 está ocupado, usa el siguiente libre (8001, 8002…).
-
-> ¿La primera vez da error de permisos? Marca el script como ejecutable una sola vez:
-> ```bash
-> chmod +x start.sh stop.sh
-> ```
-
-### Opción B — Doble clic
-
-1. Clic derecho en `start.sh` → **Propiedades** → pestaña **Permisos** → marca
-   *«Permitir ejecutar el archivo como un programa»*.
-2. Doble clic en `start.sh` → **Ejecutar en una terminal**.
-
-(En algunos sistemas el doble clic abre el archivo en el editor en vez de ejecutarlo;
-si te pasa, usa la Opción A.)
-
-### Opción C — Comando manual
+Altres ordres:
 
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1 --directory "$(pwd)"
+npm run build        # genera el lloc a dist/
+npm run preview      # serveix dist/ per comprovar el resultat real
 ```
 
 ---
 
-## 🌐 Cómo abrirla en el navegador
+## Editar els textos
 
-Si usaste la Opción A, se abre sola. Si no, escribe esta dirección en Chrome/Firefox:
+**Tot el contingut de la portada viu en tres fitxers JSON**, un per idioma:
 
 ```
-http://localhost:8000
+src/i18n/ca.json     català   (idioma per defecte)
+src/i18n/es.json     castellà
+src/i18n/en.json     anglès
 ```
 
-(Si `start.sh` te dijo otro puerto, usa ese número.)
+Els tres tenen exactament les mateixes claus. Si n'afegeixes una, afegeix-la als tres fitxers
+o la pàgina fallarà en construir-se. Per comprovar-ho:
+
+```bash
+node -e "const f=l=>require('./src/i18n/'+l+'.json');const k=o=>{const r=[];(function w(v,p){v&&typeof v==='object'&&!Array.isArray(v)?Object.keys(v).forEach(x=>w(v[x],p?p+'.'+x:x)):r.push(p)})(o,'');return r.sort()};const [a,b,c]=['ca','es','en'].map(l=>k(f(l)));console.log(JSON.stringify(a)===JSON.stringify(b)&&JSON.stringify(a)===JSON.stringify(c)?'OK: les claus coincideixen':'ERROR: les claus NO coincideixen')"
+```
+
+Algunes claus accepten HTML (`h2`, amb `<br>` per partir els titulars). La resta és text pla.
+
+**Les pàgines legals** són Markdown, una per idioma:
+
+```
+src/pages/avis-legal.md          src/pages/privacitat.md          (ca)
+src/pages/es/aviso-legal.md      src/pages/es/privacidad.md       (es)
+src/pages/en/legal-notice.md     src/pages/en/privacy.md          (en)
+```
+
+El text entre `cometes invertides` es pinta en daurat: és la convenció per marcar els buits
+pendents (NIF, denominació legal, terminis…).
+
+**Altres valors** (adreça de correu, endpoint del formulari, data del rellotge de missió)
+són a `src/config.ts`.
+
+### Formulari de contacte
+
+El formulari està preparat per a [Formspree](https://formspree.io) i no necessita servidor.
+Crea un formulari al seu panell i posa l'endpoint a `.env`:
+
+```bash
+cp .env.example .env
+# edita .env:  PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/xxxxxxxx
+```
+
+Mentre no hi sigui, el formulari mostra `[ENDPOINT_FORMSPREE]` com a destinació i no envia res.
 
 ---
 
-## 🛑 Cómo cerrarla
-
-Tienes tres formas, según cómo la lanzaste:
-
-| Cómo la lanzaste            | Cómo cerrarla                                  |
-|-----------------------------|------------------------------------------------|
-| Con `./start.sh` (Opción A) | Pulsa **`Ctrl + C`** en esa terminal.          |
-| En segundo plano / otra ventana | Ejecuta **`./stop.sh`**                    |
-| A mano                      | `Ctrl + C`, o `pkill -f "http.server"`         |
-
-Al cerrarla, `http://localhost:8000` deja de responder: la web ya no es accesible
-hasta que la vuelvas a lanzar.
-
----
-
-## 🌍 Cambiar de idioma
-
-Arriba a la derecha hay un selector **CA · EN · ES**. El idioma elegido se recuerda
-en tu navegador para la próxima visita. Por defecto arranca en **català** (o en el
-idioma de tu navegador si es inglés o castellano).
-
----
-
-## 📁 Estructura
+## Estructura
 
 ```
-page/
-├── index.html              ← la página (estructura y textos en catalán por defecto)
-├── start.sh                ← lanzar la web (+ abre el navegador)
-├── stop.sh                 ← cerrar la web
-├── README.md               ← este archivo
-└── assets/
-    ├── css/styles.css      ← todo el diseño (colores, tipografía, animaciones)
-    └── js/
-        ├── i18n.js         ← TODAS las traducciones (CA / EN / ES) + selector de idioma
-        └── main.js         ← estrellas, cuenta atrás, contadores, animaciones
+src/
+  components/      una secció de la portada per fitxer
+  layouts/         Base (capçalera, peu, SEO), Home, Legal
+  i18n/            traduccions + rutes equivalents de cada idioma
+  pages/           rutes: / · /es/ · /en/ + pàgines legals + 404
+  styles/global.css  tokens de disseny i estils propis
+  config.ts        correu, endpoint del formulari, rellotge
+public/            imatges, favicons, og.png, robots.txt, CNAME
+deploy/            configuració d'exemple per a nginx
 ```
+
+L'animació del hero (limbe terrestre, llums de ciutat, satèl·lit i enllaç òptic) es dibuixa
+amb canvas 2D dins de `src/components/Hero.astro`. No hi ha cap imatge externa ni de tercers.
 
 ---
 
-## ✏️ Editar textos y traducciones
+## Desplegament a GitHub Pages
 
-Todos los textos viven en **`assets/js/i18n.js`**, organizados por idioma
-(`ca`, `en`, `es`) y por clave (p. ej. `"hero.title"`).
+El repositori ja porta el workflow `.github/workflows/deploy.yml`. Només cal fer-ho una vegada:
 
-Para cambiar una frase, edítala en los **tres** idiomas (misma clave). Ejemplo:
+1. **Settings → Pages → Source: GitHub Actions.**
+2. **Settings → Secrets and variables → Actions → Variables**: crea
+   `PUBLIC_FORMSPREE_ENDPOINT` amb l'endpoint del formulari.
+3. Fes push a `main`. El workflow construeix el lloc i el publica.
 
-```js
-"join.cta1": "Escriu-nos",        // dentro de  ca: { ... }
-"join.cta1": "Get in touch",      // dentro de  en: { ... }
-"join.cta1": "Escríbenos",        // dentro de  es: { ... }
-```
+El domini `acsar.tech` surt de `public/CNAME`, que es copia a `dist/` en cada construcció.
+A la configuració DNS del domini hi han d'apuntar els registres de GitHub Pages
+(`185.199.108–111.153` per a l'arrel, i un CNAME `www` cap a `<usuari>.github.io`).
 
-Guarda y **recarga la página** (F5) para ver el cambio.
-
-> El email de contacto es `acsar@upc.edu` (en el botón «Escríbenos» del HTML y en el
-> pie). Cámbialo por el correo real buscándolo en `index.html`.
+> Mentre Pages estigui servint des de la branca, el lloc antic (`index.html` i `assets/` a
+> l'arrel) continua en línia. Un cop activades les Actions es poden esborrar, igual que la
+> carpeta `preview/`, que només conté la maqueta de disseny prèvia.
 
 ---
 
-## ℹ️ Notas
+## Desplegament en un servidor propi amb nginx
 
-- **Fuentes**: la web usa Space Grotesk e IBM Plex (Google Fonts). Tu navegador las
-  descarga al abrir la página; es lo único que toca internet. Si quieres que sea
-  **100 % offline**, pídelo y las dejo incrustadas en local.
-- **Sin dependencias**: no hay `npm`, ni build, ni node. Solo archivos.
-- **Publicar de verdad** (cuando queráis): al ser estática, se sube tal cual a
-  GitHub Pages, Netlify, Vercel o cualquier hosting. Pídelo y te lo preparo.
+```bash
+npm ci
+npm run build                                   # genera dist/
+rsync -av --delete dist/ usuari@servidor:/var/www/acsar/
+```
+
+Al servidor:
+
+```bash
+sudo cp deploy/nginx.conf /etc/nginx/sites-available/acsar
+sudo ln -s /etc/nginx/sites-available/acsar /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx
+sudo certbot --nginx -d acsar.tech -d www.acsar.tech    # certificat TLS
+```
+
+`deploy/nginx.conf` ja porta redirecció a HTTPS, `try_files` per a les rutes amb carpeta,
+caché immutable per a `/_astro/`, gzip i capçaleres de seguretat (inclosa una CSP que permet
+Google Fonts i Formspree: cal actualitzar-la si s'afegeixen altres serveis).
+
+---
+
+## Accessibilitat i rendiment
+
+- Contrastos per sobre d'AA (text 17,9:1; daurat 10,4:1 sobre el fons).
+- Navegació completa per teclat, enllaç de salt al contingut i focus sempre visible.
+- Tota l'animació es desactiva amb `prefers-reduced-motion`.
+- Sense galetes ni analítica. L'única connexió externa és a Google Fonts; si es vol eliminar,
+  cal autoallotjar les tipografies i actualitzar la política de privacitat.
+
+---
+
+## Pendent
+
+Els buits de contingut estan marcats entre claudàtors al codi. Per llistar-los:
+
+```bash
+grep -rn "\[.*\]" src/i18n/*.json src/pages/*.md src/pages/*/*.md | grep -v "^.*\[\]"
+grep -rn "TODO" src
+```
