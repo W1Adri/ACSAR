@@ -1,9 +1,10 @@
 /** Configuració global del lloc. Edita aquests valors, no els components. */
 
-/** Endpoint del formulari de contacte (Formspree).
- *  Posa'l a .env com a PUBLIC_FORMSPREE_ENDPOINT per no tocar el codi. */
-export const FORMSPREE_ENDPOINT =
-  import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '[ENDPOINT_FORMSPREE]';
+/** ID del formulari de Formspree (la part final de https://formspree.io/f/XXXXXXXX).
+ *  Posa'l a .env com a PUBLIC_FORMSPREE_ID; sense ID el formulari mostra
+ *  l'alternativa per correu electrònic en comptes d'enviar. */
+export const FORMSPREE_ID: string = import.meta.env.PUBLIC_FORMSPREE_ID ?? '';
+export const FORMSPREE_ACTION = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
 
 export const EMAIL = 'acsarteam@gmail.com';
 

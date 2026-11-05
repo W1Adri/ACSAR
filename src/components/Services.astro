@@ -1,0 +1,41 @@
+---
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang).services;
+---
+<section id="serveis" class="services">
+  <div class="wrap">
+    <p class="kicker rv"><b>06</b><span>{s.kicker}</span></p>
+    <div class="split blk">
+      <h2 class="rv" set:html={s.h2} />
+      <p class="lead rv">{s.lead}</p>
+    </div>
+
+    <div class="svc-grid">
+      {s.cards.map((c, i) => (
+        <article class="svc hud rv">
+          <span class="n">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{c.t}</h3>
+          <p>{c.p}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="steps-block">
+      <h3 class="rv">{s.howTitle}</h3>
+      <ol class="steps">
+        {s.steps.map((st, i) => (
+          <li class="rv">
+            <span class="n">{String(i + 1).padStart(2, '0')}</span>
+            <p>{st}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="svc-note rv">{s.note}</p>
+      <div class="btns rv">
+        <a class="btn" href="#contacte" data-topic="serveis">{s.cta} <span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>

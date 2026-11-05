@@ -14,7 +14,8 @@
     "join": "Join us",
     "contact": "Contact",
     "menu": "Menu",
-    "language": "Language"
+    "language": "Language",
+    "services": "Services"
   },
   "hero": {
     "kicker": "Association for Advanced and Resilient Satellite Communications",
@@ -29,32 +30,76 @@
     "program": "ESA Fly Your Satellite! Design Booster 3",
     "trainingLabel": "Training week",
     "training": "ESTEC · 16–20 Nov 2026",
-    "groundStation": "GROUND STATION · CASTELLDEFELS"
+    "groundStation": "ACSAR · CASTELLDEFELS"
   },
   "ticker": [
-    { "k": "Platform", "v": "6U CubeSat" },
-    { "k": "Protocol", "v": "BB84" },
-    { "k": "Links", "v": "Quantum optical + classical RF" },
-    { "k": "Orbit", "v": "LEO" },
-    { "k": "Ground segment", "v": "Campus del Baix Llobregat" },
-    { "k": "Framework", "v": "Aligned with EuroQCI" },
-    { "k": "Team", "v": "20+ students · European universities" },
-    { "k": "Method", "v": "Concurrent engineering · sprints" }
+    {
+      "k": "Platform",
+      "v": "6U CubeSat"
+    },
+    {
+      "k": "Protocol",
+      "v": "BB84"
+    },
+    {
+      "k": "Links",
+      "v": "Quantum optical + classical RF"
+    },
+    {
+      "k": "Orbit",
+      "v": "LEO"
+    },
+    {
+      "k": "Ground segment",
+      "v": "Optical station + RF station (being defined)"
+    },
+    {
+      "k": "Framework",
+      "v": "Aligned with EuroQCI"
+    },
+    {
+      "k": "Team",
+      "v": "20+ students · European universities"
+    },
+    {
+      "k": "Method",
+      "v": "Concurrent engineering · sprints"
+    }
   ],
   "about": {
     "kicker": "About us",
     "h2": "A student<br>association that<br>builds satellites",
-    "p1": "ACSAR is a student association based at Campus del Baix Llobregat in Castelldefels [university affiliation pending permission]. We design, build and operate advanced, resilient space communication systems.",
+    "p1": "ACSAR is a student association based at Campus del Baix Llobregat in Castelldefels. We design and develop advanced, resilient space communication systems.",
     "p2": "We are around fifty people and an international community: part of the team comes from outside Spain. We work with concurrent engineering, traceable requirements and real technical reviews — the same framework used to run a professional mission.",
     "p3pre": "ACSAR also operates as a ",
     "p3strong": "junior enterprise",
     "p3post": ": we can offer engineering services to companies in the sector and reinvest the income in our missions, hardware and team training.",
     "hq": "Base · Room D7-010 · Building D7 · Campus del Baix Llobregat · Castelldefels",
     "stats": [
-      { "v": "~50", "n": 50, "pre": "~", "l": "Members" },
-      { "v": "+20", "n": 20, "pre": "+", "l": "On the CLAU mission" },
-      { "v": "7", "n": 7, "pre": "", "l": "Subsystems" },
-      { "v": "[N]", "l": "Nationalities" }
+      {
+        "v": "~50",
+        "n": 50,
+        "pre": "~",
+        "l": "Members"
+      },
+      {
+        "v": "+20",
+        "n": 20,
+        "pre": "+",
+        "l": "On the CLAU mission"
+      },
+      {
+        "v": "7",
+        "n": 7,
+        "pre": "",
+        "l": "Subsystems"
+      },
+      {
+        "v": "6",
+        "n": 6,
+        "pre": "",
+        "l": "Universities"
+      }
     ]
   },
   "mission": {
@@ -76,22 +121,51 @@
     "noteLabel": "Note.",
     "note": "The payload design is confidential. On this site the quantum channel is described at high level only.",
     "cards": [
-      { "lbl": "Platform", "val": "6U", "sub": "CubeSat", "p": "Six 10-cm units: the smallest viable class that fits the optical terminal and the pointing accuracy it needs." },
-      { "lbl": "Protocol", "val": "BB84", "sub": "", "p": "The reference standard for quantum key distribution, formulated in 1984 and proven on real links." },
-      { "lbl": "Links", "val": "Optical", "sub": "+ RF", "p": "Quantum optical channel for the key and a classical radio link for telemetry and distillation." },
-      { "lbl": "Orbit", "val": "LEO", "sub": "", "p": "Low Earth orbit, with the ground station at Campus del Baix Llobregat. [orbital parameters to be confirmed]" }
+      {
+        "lbl": "Platform",
+        "val": "6U",
+        "sub": "CubeSat",
+        "p": "Six 10-cm units: the size we chose to house the optical terminal and the pointing accuracy a full QKD mission needs."
+      },
+      {
+        "lbl": "Protocol",
+        "val": "BB84",
+        "sub": "",
+        "p": "The reference standard for quantum key distribution, formulated in 1984 and proven on real links."
+      },
+      {
+        "lbl": "Links",
+        "val": "Optical",
+        "sub": "+ RF",
+        "p": "Quantum optical channel for the key and a classical radio link for telemetry and distillation."
+      },
+      {
+        "lbl": "Orbit",
+        "val": "LEO",
+        "sub": "",
+        "p": "Low Earth orbit. The orbital parameters will be set according to the launch opportunity."
+      }
     ]
   },
   "positioning": {
     "kicker": "Why it matters",
-    "quotePre": "No CubeSat has yet demonstrated ",
+    "quotePre": "As of October 2026, no CubeSat has publicly demonstrated ",
     "quoteEm": "secure key generation",
     "quotePost": " in orbit.",
     "src": "It is an open goal for the sector, and it is what CLAU is after.",
     "claims": [
-      { "b": "First QKD CubeSat led by a university association in Spain", "p": "Built by students, with the same engineering rigour as an institutional mission." },
-      { "b": "6U as the minimum viable class", "p": "Below that size there is no room for the optical terminal and the pointing control a quantum link demands." },
-      { "b": "Aligned with EuroQCI", "p": "Europe's quantum communication infrastructure foresees a space segment; CLAU works towards it at CubeSat scale." }
+      {
+        "b": "First QKD CubeSat led by a university association in Spain",
+        "p": "Built by students, with the same engineering rigour as an institutional mission."
+      },
+      {
+        "b": "6U, a platform sized for the job",
+        "p": "Enough room for the optical terminal and the pointing control a quantum link demands, at CubeSat cost and schedule."
+      },
+      {
+        "b": "Aligned with EuroQCI",
+        "p": "Europe's quantum communication infrastructure foresees a space segment; CLAU works towards it at CubeSat scale."
+      }
     ]
   },
   "roadmap": {
@@ -99,12 +173,43 @@
     "h2": "From the optical<br>bench to orbit",
     "lead": "CLAU has been shortlisted for Design Booster 3 of the European Space Agency's Fly Your Satellite! programme. This is the schedule up to the end of the programme.",
     "items": [
-      { "date": "16–20 Nov 2026", "tag": "Shortlisted", "h3": "Training week at ESTEC", "p": "The team attends the Design Booster 3 training week at ESA's technical centre in Noordwijk, the Netherlands, alongside the other shortlisted missions.", "now": true },
-      { "date": "December 2026", "tag": "Milestone", "h3": "Final selection decision", "p": "ESA announces which missions continue in the programme after the training week." },
-      { "date": "Until February 2027", "tag": "Laboratory", "h3": "Laboratory experiments", "p": "Validating the operating principle on a controlled optical bench, with repeatable measurements and component characterisation." },
-      { "date": "From early 2027", "tag": "Engineering", "h3": "Detailed satellite design", "p": "Full subsystem definition, mass, power and link budgets, integration plan and verification plan." },
-      { "date": "Until mid-2027", "tag": "Field", "h3": "Free-space experiments", "p": "The link leaves the lab: open-air propagation between two sites, with real turbulence and background light." },
-      { "date": "June 2028", "tag": "Programme", "h3": "End of the Design Booster", "p": "The programme closes with the mission design consolidated and documented." }
+      {
+        "date": "16–20 Nov 2026",
+        "tag": "Shortlisted",
+        "h3": "Training week at ESTEC",
+        "p": "The team attends the Design Booster 3 training week at ESA's technical centre in Noordwijk, the Netherlands, alongside the other shortlisted missions.",
+        "now": true
+      },
+      {
+        "date": "December 2026",
+        "tag": "Milestone",
+        "h3": "Final selection decision",
+        "p": "ESA announces which missions continue in the programme after the training week."
+      },
+      {
+        "date": "Until February 2027",
+        "tag": "Laboratory",
+        "h3": "Laboratory experiments",
+        "p": "Validating the operating principle on a controlled optical bench, with repeatable measurements and component characterisation."
+      },
+      {
+        "date": "From early 2027",
+        "tag": "Engineering",
+        "h3": "Detailed satellite design",
+        "p": "Full subsystem definition, mass, power and link budgets, integration plan and verification plan."
+      },
+      {
+        "date": "Until mid-2027",
+        "tag": "Field",
+        "h3": "Free-space experiments",
+        "p": "The link leaves the lab: open-air propagation between two sites, with real turbulence and background light."
+      },
+      {
+        "date": "June 2028",
+        "tag": "Programme",
+        "h3": "End of the Design Booster",
+        "p": "The programme closes with the mission design consolidated and documented."
+      }
     ]
   },
   "how": {
@@ -113,27 +218,107 @@
     "lead": "More than twenty students from several European universities work on CLAU, organised by subsystem around a shared mission model.",
     "p": "Every subsystem has owners, its own documentation and requirements traceable to the mission objectives. Nothing is considered settled until it can be verified.",
     "subs": [
-      { "code": "EPS", "name": "Power", "p": "Solar generation, storage and power distribution across the orbit." },
-      { "code": "ADCS", "name": "Attitude control", "p": "Attitude determination and control: pointing the satellite with the accuracy the optical link demands." },
-      { "code": "OBC", "name": "On-board computer", "p": "Flight software, mode management, data handling and spacecraft health monitoring." },
-      { "code": "RF", "name": "Radio frequency", "p": "Classical telecommand and telemetry link, and support for the public part of the protocol." },
-      { "code": "STR", "name": "Structure", "p": "Mechanical configuration of the 6U, interfaces, stiffness and thermal control." },
-      { "code": "GS", "name": "Ground segment", "p": "Receiving station, operations, satellite tracking and processing of the downlinked data." },
-      { "code": "P/L", "name": "Payload", "p": "The quantum optical channel. Design details are confidential." }
+      {
+        "code": "EPS",
+        "name": "Power",
+        "p": "Solar generation, storage and power distribution across the orbit."
+      },
+      {
+        "code": "ADCS",
+        "name": "Attitude control",
+        "p": "Attitude determination and control: pointing the satellite with the accuracy the optical link demands."
+      },
+      {
+        "code": "OBC",
+        "name": "On-board computer",
+        "p": "Flight software, mode management, data handling and spacecraft health monitoring."
+      },
+      {
+        "code": "RF",
+        "name": "Radio frequency",
+        "p": "Classical telecommand and telemetry link, and support for the public part of the protocol."
+      },
+      {
+        "code": "STR",
+        "name": "Structure",
+        "p": "Mechanical configuration of the 6U, interfaces, stiffness and thermal control."
+      },
+      {
+        "code": "GS",
+        "name": "Ground segment",
+        "p": "Receiving station, operations, satellite tracking and processing of the downlinked data."
+      },
+      {
+        "code": "P/L",
+        "name": "Payload",
+        "p": "The quantum optical channel. Design details are confidential."
+      }
     ],
-    "cometH": "COMET methodology",
-    "cometP": "We use ESA's concurrent engineering approach: all subsystems iterate at once on a single mission model. A decision on mass, power or pointing propagates to everyone immediately and its impact is visible right away, instead of surfacing three months later.",
+    "cometH": "Concurrent engineering with COMET",
+    "cometP": "We use COMET, the open-source concurrent engineering tool recommended by ESA: all subsystems iterate at once on a single mission model. A decision on mass, power or pointing propagates to everyone immediately and its impact is visible right away, instead of surfacing three months later.",
     "sprintH": "Agile sprints",
     "sprintP": "Work is organised in short sprints with verifiable goals and reviews open to the whole team. That lets people with very different course loads contribute without blocking anyone else, and keeps the real state of the project visible at all times."
+  },
+  "services": {
+    "kicker": "Services",
+    "h2": "Services<br>for companies",
+    "lead": "ACSAR operates as a junior enterprise: teams of students trained in aerospace engineering, telecommunications, physics and computer science deliver real projects for companies and institutions. The income is reinvested in our missions and in training the team.",
+    "cards": [
+      {
+        "t": "3D modelling and CAD",
+        "p": "Parts, assemblies and drawings in SolidWorks and FreeCAD, renders and preparation for 3D printing and rapid prototyping."
+      },
+      {
+        "t": "Simulation and analysis",
+        "p": "RF link budgets, satellite coverage and pass analysis, data analysis and numerical models in Python and MATLAB."
+      },
+      {
+        "t": "Software development",
+        "p": "Custom tools, automation, data processing, dashboards and web applications."
+      },
+      {
+        "t": "RF, antennas and electronics",
+        "p": "Antenna and link design and simulation, PCB design and firmware for microcontrollers."
+      },
+      {
+        "t": "CubeSat systems engineering",
+        "p": "Mission feasibility studies, mass, power and link budgets, and technical documentation following ECSS standards."
+      },
+      {
+        "t": "Training and outreach",
+        "p": "Workshops and courses on space, satellite communications and quantum technology for schools and companies."
+      }
+    ],
+    "howTitle": "How we work with you",
+    "steps": [
+      "You tell us the challenge",
+      "Tailored proposal and quote",
+      "A student team with a project lead builds it",
+      "Delivery and follow-up"
+    ],
+    "note": "We do not offer services related to optical or quantum payloads.",
+    "cta": "Request a quote"
   },
   "join": {
     "kicker": "Join us · Collaborate",
     "h2": "There is room<br>for you",
     "lead": "A space mission needs far more than aerospace engineering. If you want to take part, write to us and let's talk.",
     "cols": [
-      { "h3": "Students", "p": "We are looking for people in engineering, physics, computer science and related fields, and also for anyone who wants to help with communication, management or institutional relations. No prior space experience needed: what matters is commitment and wanting to learn by doing.", "link": "I want to join" },
-      { "h3": "Companies", "p": "As a junior enterprise we offer engineering services in communications and space systems, and we collaborate on R&D projects. We also take on specific technical challenges as team projects.", "link": "Let's talk projects" },
-      { "h3": "Sponsors", "p": "Financial and in-kind support makes the hardware, the laboratory testing and the mission's technical travel possible. Sponsor benefits are [to be defined].", "link": "Support CLAU" }
+      {
+        "h3": "Students",
+        "p": "We are looking for people in engineering, physics, computer science and related fields, and also for anyone who wants to help with communication, management or institutional relations. No prior space experience needed: what matters is commitment and wanting to learn by doing.",
+        "link": "I want to join"
+      },
+      {
+        "h3": "Companies",
+        "p": "As a junior enterprise we offer engineering services in communications and space systems, and we collaborate on R&D projects. We also take on specific technical challenges as team projects.",
+        "link": "See the services"
+      },
+      {
+        "h3": "Sponsors",
+        "p": "Financial and in-kind support makes the hardware, the laboratory testing and the mission's technical travel possible.",
+        "link": "Support CLAU"
+      }
     ]
   },
   "contact": {
@@ -146,12 +331,37 @@
     "topics": "Students · Companies · Sponsorship · Press",
     "fName": "Name",
     "fEmail": "Email",
-    "fSubject": "Subject",
     "fMessage": "Message",
     "send": "Send",
     "privacyPre": "By sending this form you accept the ",
     "privacyLink": "privacy policy",
-    "subject": "Contact from acsar.tech"
+    "subject": "Contact from acsar.tech",
+    "fTopic": "Topic",
+    "topicOptions": [
+      {
+        "v": "estudiants",
+        "l": "Students"
+      },
+      {
+        "v": "serveis",
+        "l": "Services for companies"
+      },
+      {
+        "v": "patrocini",
+        "l": "Sponsorship"
+      },
+      {
+        "v": "premsa",
+        "l": "Press"
+      },
+      {
+        "v": "altres",
+        "l": "Other"
+      }
+    ],
+    "sending": "Sending…",
+    "sent": "Message sent. We'll get back to you as soon as we can.",
+    "error": "It could not be sent. Write to us at"
   },
   "footer": {
     "motto": "Sic · Semper · Astralis",

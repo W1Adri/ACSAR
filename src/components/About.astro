@@ -10,10 +10,10 @@ const s = t(lang).about;
     <div class="split">
       <h2 class="rv" set:html={s.h2} />
       <div>
-        <!-- TODO: esmentar la universitat o l'escola requereix permís exprés. Mantingut entre claudàtors. -->
+        <!-- TODO: esmentar la UPC o l'EETAC requereix permís exprés; per això no hi són. -->
         <p class="lead rv">{s.p1}</p>
         <p class="rv dim">{s.p2}</p>
-        <p class="rv dim">{s.p3pre}<b class="strong">{s.p3strong}</b>{s.p3post}</p>
+        <p class="rv dim">{s.p3pre}<a class="inline-link" href="#serveis">{s.p3strong}</a>{s.p3post}</p>
         <p class="rv mono" style="color:var(--color-faint);margin-top:2rem">{s.hq}</p>
       </div>
     </div>

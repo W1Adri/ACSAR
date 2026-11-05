@@ -9,8 +9,10 @@ interface Props {
   page: PageKey;
   title?: string;
   description?: string;
+  /** Les pàgines legals encara tenen buits per omplir: no les volem indexades. */
+  noindex?: boolean;
 }
-const { lang, page, title, description } = Astro.props;
+const { lang, page, title, description, noindex = false } = Astro.props;
 const s = t(lang);
 const pageTitle = title ?? s.meta.title;
 const pageDesc = description ?? s.meta.description;
@@ -25,6 +27,7 @@ const ogImage = new URL('/img/og.png', Astro.site);
   <title>{pageTitle}</title>
   <meta name="description" content={pageDesc} />
   <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
   {(Object.keys(languages) as Lang[]).map((l) => (
     <link rel="alternate" hreflang={hreflang[l]} href={new URL(routes[page][l], Astro.site)} />
   ))}

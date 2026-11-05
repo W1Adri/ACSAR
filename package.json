@@ -8,7 +8,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:placeholders": "node scripts/check-placeholders.mjs",
+    "check": "npm run build && npm run check:placeholders"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

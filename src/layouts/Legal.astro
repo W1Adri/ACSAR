@@ -7,7 +7,7 @@ interface Props {
 }
 const { frontmatter: f } = Astro.props;
 ---
-<Base lang={f.lang} page={f.page} title={`${f.title} — ACSAR`} description={f.description}>
+<Base lang={f.lang} page={f.page} title={`${f.title} — ACSAR`} description={f.description} noindex>
   <article class="legal">
     <h1>{f.title}</h1>
     <p class="sub">{f.subtitle}</p>
