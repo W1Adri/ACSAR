@@ -3,26 +3,24 @@ layout: ../layouts/Legal.astro
 lang: ca
 page: privacy
 title: Política de privacitat
-subtitle: "Darrera actualització: [data] · Document pendent de revisió jurídica"
-description: Com tracta ACSAR les dades personals recollides a través del lloc web.
+subtitle: "Darrera actualització: 5 de novembre de 2026"
+description: Com tracta ACSAR les dades personals que rep a través del lloc web.
 ---
 
-Aquesta política explica com es tracten les dades personals que ens facilites a través d'aquest lloc web, d'acord amb el Reglament (UE) 2016/679 (RGPD) i la Llei orgànica 3/2018 (LOPDGDD).
+Aquesta política explica com es tracten les dades personals que ens facilites, d'acord amb el Reglament (UE) 2016/679 (RGPD) i la Llei orgànica 3/2018 (LOPDGDD).
 
 ## 01 · Responsable del tractament
 
 | | |
 |---|---|
-| Responsable | `[DENOMINACIÓ LEGAL COMPLETA DE L'ASSOCIACIÓ]` |
-| NIF | `[NIF]` |
+| Responsable | ACSAR – Associació de Comunicacions Satel·litals Avançades i Resilients |
 | Adreça | Espai D7-010, Edifici D7, Campus del Baix Llobregat, 08860 Castelldefels (Barcelona) |
 | Contacte | [acsarteam@gmail.com](mailto:acsarteam@gmail.com) |
-| Delegat de protecció de dades | `[no designat / dades de contacte]` |
+| Delegat de protecció de dades | No designat, perquè no és obligatori per a l'associació. Les consultes s'atenen a [acsarteam@gmail.com](mailto:acsarteam@gmail.com). |
 
 ## 02 · Quines dades tractem
 
-- **Correu electrònic:** les dades que incloguis quan ens escrius directament.
-- **Dades tècniques de navegació:** `[indicar si el proveïdor d'allotjament conserva registres d'accés amb adreça IP i durant quant de temps]`.
+Només tractem les dades que ens envies per correu electrònic a [acsarteam@gmail.com](mailto:acsarteam@gmail.com). Aquest lloc no té formularis ni registre d'usuaris.
 
 No recollim dades de categories especials ni fem perfilat ni decisions automatitzades.
 
@@ -30,37 +28,40 @@ No recollim dades de categories especials ni fem perfilat ni decisions automatit
 
 | | |
 |---|---|
-| Atendre consultes | Respondre els missatges que ens envies. Base jurídica: el teu consentiment en escriure'ns (art. 6.1.a RGPD). |
-| Gestionar candidatures | Valorar la teva incorporació a l'equip si ens escrius per participar-hi. Base jurídica: consentiment i mesures precontractuals (art. 6.1.a i 6.1.b RGPD). |
-| Empreses i patrocinadors | Gestionar propostes de col·laboració. Base jurídica: interès legítim i mesures precontractuals (art. 6.1.f i 6.1.b RGPD). |
+| Finalitat | Respondre la teva consulta. |
+| Base jurídica | El teu consentiment en escriure'ns (art. 6.1.a RGPD). |
 
-No enviem comunicacions comercials ni butlletins tret que t'hi subscriguis expressament. `[Actualitzar si s'habilita una llista de correu.]`
+No enviem comunicacions comercials ni butlletins.
 
 ## 04 · Durant quant de temps conservem les dades
 
-Conservem les dades el temps necessari per atendre la teva sol·licitud i, després, durant `[termini, p. ex. 12 mesos]` per poder acreditar l'atenció prestada, llevat que la llei n'exigeixi un termini superior o n'exerceixis la supressió.
+Conservem les dades el temps necessari per atendre la teva consulta i, com a màxim, un any després de l'últim contacte.
 
 ## 05 · Destinataris i encarregats del tractament
 
-- `[proveïdor d'allotjament]`, per al servei d'allotjament del lloc web.
-- `[proveïdor de correu electrònic]`, per a la recepció i gestió dels missatges.
+- **Google LLC (Gmail)**, proveïdor del correu electrònic on rebem i gestionem els missatges.
+- **GitHub, Inc. (GitHub Pages)**, proveïdor d'allotjament del lloc web.
 
 No cedim dades a tercers fora dels casos indicats, llevat d'obligació legal.
 
-## 06 · Els teus drets
+## 06 · Registres d'accés
 
-Pots exercir els drets d'accés, rectificació, supressió, limitació, oposició i portabilitat, i retirar el consentiment en qualsevol moment, escrivint a [acsarteam@gmail.com](mailto:acsarteam@gmail.com) i acreditant la teva identitat.
+En visitar el lloc, GitHub pot registrar l'adreça IP de les persones visitants per motius de seguretat, d'acord amb la seva pròpia [declaració de privacitat](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement). ACSAR no té accés a aquests registres ni els fa servir.
 
-Si consideres que no hem atès correctament la teva sol·licitud, pots reclamar davant l'Autoritat Catalana de Protecció de Dades (apdcat.gencat.cat) o l'Agència Espanyola de Protecció de Dades (aepd.es).
+## 07 · Els teus drets
 
-## 07 · Galetes
+Pots exercir els drets d'accés, rectificació, supressió, oposició, limitació i portabilitat, i retirar el consentiment en qualsevol moment, escrivint a [acsarteam@gmail.com](mailto:acsarteam@gmail.com).
 
-Aquest lloc **no utilitza galetes de seguiment, d'analítica ni de publicitat**. Les tipografies es carreguen des de Google Fonts, cosa que implica una connexió als servidors de Google des del teu navegador. `[Si es volen evitar aquestes connexions, cal autoallotjar les tipografies; si s'afegeix analítica, cal un bàner de consentiment i actualitzar aquest apartat.]`
+Si consideres que no hem atès correctament la teva sol·licitud, pots presentar una reclamació davant l'Agència Espanyola de Protecció de Dades ([aepd.es](https://www.aepd.es)).
 
-## 08 · Seguretat
+## 08 · Galetes i analítica
+
+Aquest lloc **no utilitza galetes ni cap eina d'analítica o de publicitat**. Les tipografies se serveixen des del mateix lloc, sense connexions a serveis de tercers.
+
+## 09 · Seguretat
 
 Apliquem mesures tècniques i organitzatives raonables per protegir les dades. El lloc es serveix xifrat mitjançant HTTPS.
 
-## 09 · Canvis en aquesta política
+## 10 · Canvis en aquesta política
 
 Podem actualitzar aquesta política per adaptar-la a canvis normatius o del servei. La data de l'última actualització figura a l'encapçalament.

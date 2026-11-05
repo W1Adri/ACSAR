@@ -1,4 +1,13 @@
 ---
+/* Tipografies autoallotjades (sense connexions a Google Fonts) */
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/700.css';
+import '@fontsource/barlow/300.css';
+import '@fontsource/barlow/400.css';
+import '@fontsource/barlow/500.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -58,13 +67,6 @@ const orgLd = {
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Barlow:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
 </head>
 <body>
   <a class="skip" href="#main">{s.nav.skip}</a>

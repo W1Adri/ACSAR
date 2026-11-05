@@ -29,35 +29,24 @@ El formulari i Formspree s'han tret del lloc (nov 2026). La secció Contacte ofe
 correu (`mailto:`), un botó «Escriu-nos →» i LinkedIn. No cal cap configuració externa.
 
 ### Dades legals
-Les pàgines legals porten `noindex` mentre tinguin buits. Buits actuals:
+Les pàgines legals (avís legal + privacitat, ca/es/en) estan completes a 5 de novembre de 2026,
+excepte aquests camps, que **s'han tret del tot** fins que es tinguin:
 
-| Fitxer | Buit |
-|---|---|
-| avís legal + privacitat (ca/es/en) | denominació legal completa de l'associació |
-| avís legal + privacitat (ca/es/en) | NIF |
-| avís legal (ca/es/en) | registre d'associacions: número i data d'inscripció |
-| avís legal + privacitat (ca/es/en) | proveïdor d'allotjament |
-| avís legal (ca/es/en) | localitat del fur |
-| avís legal (ca/es/en) | llicència dels continguts, si se n'adopta una |
-| privacitat (ca/es/en) | delegat de protecció de dades (o constatar que no n'hi ha) |
-| privacitat (ca/es/en) | registres d'accés del proveïdor: si en guarda i quant |
-| privacitat (ca/es/en) | termini de conservació de les dades dels correus rebuts |
-| privacitat (ca/es/en) | proveïdor de correu electrònic |
-| privacitat (ca/es/en) | llista de correu (actualitzar si se n'habilita una) |
-| privacitat (ca/es/en) | Google Fonts: autoallotjar o mantenir l'avís |
-| totes | data de l'última actualització |
-
-- [ ] Omplir-ho tot i **fer revisar els dos documents per algú amb criteri jurídic**.
-- [ ] Treure el `noindex` (`src/layouts/Legal.astro`) quan estiguin tancats.
+- [ ] **NIF** de l'associació: afegir-lo a la taula «Titular» de l'avís legal i a
+      «Responsable» de la privacitat (tres idiomes).
+- [ ] **Registre d'associacions** de la Generalitat: número i data d'inscripció, a l'avís legal.
+- [ ] Transferències internacionals (GitHub i Google són dels EUA): valorar si cal esmentar-ne
+      la garantia (Marc de privacitat de dades UE-EUA) a la privacitat.
+- [ ] Treure el `noindex` (`src/layouts/Legal.astro`) quan hi hagi NIF i registre, i fer
+      revisar els documents per algú amb criteri jurídic.
 
 ---
 
 ## 2. Dades a confirmar
 
-- [ ] **Segment de terra.** Ara la web diu «estació òptica + estació RF (en definició)» i
-      l'etiqueta del hero és «ACSAR · Castelldefels». Cal confirmar quina estació òptica
-      s'utilitzarà i si l'estació RF serà al campus. La targeta Òrbita ja diu «El segment de
-      terra està en definició»; quan es concreti, actualitzar-la i revisar l'etiqueta del hero.
+- [ ] **Segment de terra.** Ara la web diu «estació òptica + estació RF (en definició)».
+      Cal confirmar quina estació òptica s'utilitzarà i si l'estació RF serà al campus. La targeta Òrbita diu «El segment de
+      terra està en definició» i el hero rotula «Estació de terra»; actualitzar-ho quan es concreti.
 - [ ] **Nacionalitats.** La web mostra «+6 Nacionalitats» (abans «6 universitats»).
 - [x] **UPC i EETAC.** No s'esmenten enlloc del lloc fins que hi hagi permís exprés.
 - [ ] **Serveis.** Repassar que els sis serveis llistats es poden prestar de debò i amb
@@ -91,6 +80,5 @@ El CSS de les bandes fotogràfiques a sang es va retirar; es recupera de l'histo
 
 ## 5. Millores tècniques pendents
 
-- [ ] Autoallotjar les tipografies si es vol eliminar la connexió a Google Fonts (ara està
-      declarada a la política de privacitat).
+- [x] Tipografies autoallotjades amb `@fontsource` (nov 2026).
 - [ ] Afegir una pàgina o secció d'actualitat quan hi hagi fites noves (training week).

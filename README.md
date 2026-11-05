@@ -120,8 +120,8 @@ sudo certbot --nginx -d acsar.tech -d www.acsar.tech    # certificat TLS
 ```
 
 `deploy/nginx.conf` ja porta redirecció a HTTPS, `try_files` per a les rutes amb carpeta,
-caché immutable per a `/_astro/`, gzip i capçaleres de seguretat (inclosa una CSP que permet
-Google Fonts: cal actualitzar-la si s'afegeixen altres serveis).
+caché immutable per a `/_astro/`, gzip i capçaleres de seguretat (inclosa una CSP que només permet
+recursos del mateix domini: cal actualitzar-la si s'afegeixen serveis externs).
 
 ---
 
@@ -130,8 +130,8 @@ Google Fonts: cal actualitzar-la si s'afegeixen altres serveis).
 - Contrastos per sobre d'AA (text 17,9:1; daurat 10,4:1 sobre el fons).
 - Navegació completa per teclat, enllaç de salt al contingut i focus sempre visible.
 - Tota l'animació es desactiva amb `prefers-reduced-motion`.
-- Sense galetes ni analítica. L'única connexió externa és a Google Fonts; si es vol eliminar,
-  cal autoallotjar les tipografies i actualitzar la política de privacitat.
+- Sense galetes ni analítica, i sense connexions externes: les tipografies s'autoallotgen
+  amb `@fontsource` (importades a `src/layouts/Base.astro`).
 
 ---
 

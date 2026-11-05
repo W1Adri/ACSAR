@@ -77,8 +77,9 @@ LinkedIn (URLs a `src/config.ts`). Vegeu `README.md` per a executar, editar i de
 - **Formulari de contacte eliminat** (nov 2026). Els contactes arriben només per correu.
 - **UPC i EETAC no s'esmenten** enlloc del lloc (vegeu la regla 3). `about.p1` diu només que
   ACSAR té seu al Campus del Baix Llobregat.
-- **Segment de terra en definició**: la targeta Òrbita i el ticker ho diuen així. L'etiqueta
-  del hero (`hero.groundStation`, «ACSAR · CASTELLDEFELS») s'ha de revisar quan es concreti.
+- **Segment de terra en definició**: la targeta Òrbita i el ticker ho diuen així, i el hero
+  rotula l'estació dibuixada de forma genèrica («Estació de terra»), sense ubicació.
 - Contrapartides de patrocini: sense definir; no apareixen a la web.
-- Les pàgines legals tenen buits per a denominació legal, NIF, registre, allotjament,
-  terminis i fur. **Necessiten revisió jurídica abans de publicar-se.**
+- Pàgines legals completes (5 nov 2026) excepte **NIF i número de registre**, que no hi
+  surten (ni amb claudàtors) fins que existeixin. Vegeu `TODO.md`.
+- Tipografies autoallotjades amb `@fontsource`: cap connexió a Google Fonts.

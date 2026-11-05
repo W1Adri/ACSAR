@@ -3,64 +3,65 @@ layout: ../../layouts/Legal.astro
 lang: en
 page: privacy
 title: Privacy policy
-subtitle: "Last updated: [date] · Document pending legal review"
-description: How ACSAR processes the personal data collected through this website.
+subtitle: "Last updated: November 5, 2026"
+description: How ACSAR processes the personal data it receives through this website.
 ---
 
-This policy explains how we process the personal data you provide through this website, in accordance with Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 (LOPDGDD).
+This policy explains how the personal data you provide to us is processed, in accordance with Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 (LOPDGDD).
 
 ## 01 · Data controller
 
 | | |
 |---|---|
-| Controller | `[FULL LEGAL NAME OF THE ASSOCIATION]` |
-| Tax ID (NIF) | `[NIF]` |
-| Address | Room D7-010, Building D7, Campus del Baix Llobregat, 08860 Castelldefels (Barcelona), Spain |
+| Controller | ACSAR – Associació de Comunicacions Satel·litals Avançades i Resilients |
+| Address | Espai D7-010, Edifici D7, Campus del Baix Llobregat, 08860 Castelldefels (Barcelona), Spain |
 | Contact | [acsarteam@gmail.com](mailto:acsarteam@gmail.com) |
-| Data protection officer | `[not appointed / contact details]` |
+| Data protection officer | Not appointed, as it is not mandatory for the association. Enquiries are handled at [acsarteam@gmail.com](mailto:acsarteam@gmail.com). |
 
 ## 02 · What data we process
 
-- **Email:** whatever data you include when you write to us directly.
-- **Technical browsing data:** `[state whether the hosting provider keeps access logs with IP addresses and for how long]`.
+We only process the data you send us by email to [acsarteam@gmail.com](mailto:acsarteam@gmail.com). This site has no forms and no user registration.
 
-We do not collect special category data, and we do not carry out profiling or automated decision-making.
+We do not collect special categories of data, and we do not carry out profiling or automated decision-making.
 
 ## 03 · Purpose and legal basis
 
 | | |
 |---|---|
-| Answering enquiries | Replying to the messages you send us. Legal basis: your consent when you write to us (art. 6.1.a GDPR). |
-| Handling applications | Assessing you joining the team if you write to take part. Legal basis: consent and pre-contractual measures (art. 6.1.a and 6.1.b GDPR). |
-| Companies and sponsors | Handling collaboration proposals. Legal basis: legitimate interest and pre-contractual measures (art. 6.1.f and 6.1.b GDPR). |
+| Purpose | Replying to your enquiry. |
+| Legal basis | Your consent when you write to us (art. 6.1.a GDPR). |
 
-We do not send marketing communications or newsletters unless you expressly subscribe. `[Update if a mailing list is enabled.]`
+We do not send commercial communications or newsletters.
 
-## 04 · How long we keep the data
+## 04 · How long we keep data
 
-We keep the data for as long as needed to handle your request and, afterwards, for `[period, e.g. 12 months]` in order to evidence the service provided, unless the law requires a longer period or you request erasure.
+We keep data for as long as needed to handle your enquiry and, at most, one year after the last contact.
 
 ## 05 · Recipients and processors
 
-- `[hosting provider]`, for website hosting.
-- `[email provider]`, for receiving and managing messages.
+- **Google LLC (Gmail)**, the email provider through which we receive and manage messages.
+- **GitHub, Inc. (GitHub Pages)**, the website hosting provider.
 
-We do not share data with third parties beyond the cases listed, except where legally required.
+We do not share data with third parties other than those listed, unless required by law.
 
-## 06 · Your rights
+## 06 · Access logs
 
-You may exercise your rights of access, rectification, erasure, restriction, objection and portability, and withdraw consent at any time, by writing to [acsarteam@gmail.com](mailto:acsarteam@gmail.com) and proving your identity.
+When you visit the site, GitHub may log visitors' IP addresses for security purposes, in accordance with its own [privacy statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement). ACSAR has no access to these logs and does not use them.
 
-If you believe your request has not been handled properly, you may lodge a complaint with the Catalan Data Protection Authority (apdcat.gencat.cat) or the Spanish Data Protection Agency (aepd.es).
+## 07 · Your rights
 
-## 07 · Cookies
+You can exercise your rights of access, rectification, erasure, objection, restriction and portability, and withdraw your consent at any time, by writing to [acsarteam@gmail.com](mailto:acsarteam@gmail.com).
 
-This site **uses no tracking, analytics or advertising cookies**. Fonts are loaded from Google Fonts, which means your browser connects to Google's servers. `[To avoid those connections, self-host the fonts; if analytics are added, a consent banner is required and this section must be updated.]`
+If you believe we have not handled your request properly, you can lodge a complaint with the Spanish Data Protection Agency ([aepd.es](https://www.aepd.es)).
 
-## 08 · Security
+## 08 · Cookies and analytics
 
-We apply reasonable technical and organisational measures to protect the data. The site is served over HTTPS.
+This site **does not use cookies or any analytics or advertising tools**. Fonts are served from the site itself, with no connections to third-party services.
 
-## 09 · Changes to this policy
+## 09 · Security
 
-We may update this policy to reflect changes in legislation or in the service. The date of the latest update is shown at the top.
+We apply reasonable technical and organisational measures to protect data. The site is served encrypted over HTTPS.
+
+## 10 · Changes to this policy
+
+We may update this policy to reflect changes in the law or in the service. The date of the last update is shown at the top.

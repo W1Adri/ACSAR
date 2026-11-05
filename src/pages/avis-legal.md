@@ -3,7 +3,7 @@ layout: ../layouts/Legal.astro
 lang: ca
 page: legal
 title: Avís legal
-subtitle: "Darrera actualització: [data] · Document pendent de revisió jurídica"
+subtitle: "Darrera actualització: 5 de novembre de 2026"
 description: Avís legal del lloc web d'ACSAR.
 ---
 
@@ -15,12 +15,10 @@ En compliment de l'article 10 de la Llei 34/2002, d'11 de juliol, de serveis de 
 
 | | |
 |---|---|
-| Denominació | `[DENOMINACIÓ LEGAL COMPLETA DE L'ASSOCIACIÓ]` |
-| NIF | `[NIF — l'associació encara no en té]` |
+| Denominació | ACSAR – Associació de Comunicacions Satel·litals Avançades i Resilients |
 | Domicili | Espai D7-010, Edifici D7, Campus del Baix Llobregat, 08860 Castelldefels (Barcelona) |
 | Correu electrònic | [acsarteam@gmail.com](mailto:acsarteam@gmail.com) |
-| Registre | `[Registre d'Associacions de la Generalitat de Catalunya, núm. i data d'inscripció]` |
-| Allotjament | `[proveïdor d'allotjament del lloc web]` |
+| Allotjament | GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, EUA |
 
 ## 02 · Objecte
 
@@ -32,9 +30,9 @@ La persona usuària es compromet a fer un ús adequat dels continguts del lloc i
 
 ## 04 · Propietat intel·lectual i industrial
 
-Els textos, imatges, emblemes de missió, logotips, codi font i la resta d'elements d'aquest lloc són titularitat de `[DENOMINACIÓ LEGAL DE L'ASSOCIACIÓ]` o de tercers que n'han autoritzat l'ús, i estan protegits per la normativa de propietat intel·lectual i industrial.
+© 2026 ACSAR. Tots els drets reservats, llevat que s'indiqui el contrari.
 
-No se'n permet la reproducció, distribució, comunicació pública ni transformació sense autorització expressa i per escrit, llevat dels usos permesos per la llei. `[Si s'adopta una llicència oberta per a algun contingut, indicar-la aquí.]`
+Els textos, imatges, emblemes de missió, logotips, codi font i la resta d'elements d'aquest lloc són titularitat d'ACSAR – Associació de Comunicacions Satel·litals Avançades i Resilients o de tercers que n'han autoritzat l'ús, i estan protegits per la normativa de propietat intel·lectual i industrial. No se'n permet la reproducció, distribució, comunicació pública ni transformació sense autorització expressa i per escrit, llevat dels usos permesos per la llei.
 
 Les denominacions, marques i logotips de tercers que puguin aparèixer en aquest lloc pertanyen als seus titulars respectius i s'utilitzen, si escau, amb la seva autorització. La menció de programes, agències o institucions no implica cap vinculació, patrocini ni aval per part seva tret que s'indiqui expressament.
 
@@ -52,4 +50,4 @@ El tractament de dades personals es regeix per la [política de privacitat](/pri
 
 ## 08 · Legislació aplicable i jurisdicció
 
-Aquestes condicions es regeixen per la legislació espanyola. Per a qualsevol controvèrsia, les parts se sotmeten als jutjats i tribunals de `[localitat]`, llevat que la normativa de consum estableixi un fur diferent.
+Aquestes condicions es regeixen per la legislació espanyola. Per a qualsevol controvèrsia, les parts se sotmeten als jutjats i tribunals de Barcelona, llevat que la normativa de consum estableixi un fur diferent.

@@ -1,6 +1,6 @@
 /**
  * Comprova que no queda cap text provisional entre claudàtors al HTML generat.
- * Les pàgines legals estan exemptes: els seus buits depenen del NIF, que encara no existeix.
+ * Inclou les pàgines legals.
  *
  *   npm run check:placeholders
  */
@@ -8,7 +8,6 @@ import { readdir, readFile } from 'node:fs/promises';
 import { join, relative, sep } from 'node:path';
 
 const DIST = 'dist';
-const EXEMPT = ['avis-legal', 'privacitat', 'aviso-legal', 'privacidad', 'legal-notice', 'privacy'];
 // [algun text] però no [] ni els claudàtors de codi/JSON que puguin aparèixer en atributs
 const PLACEHOLDER = /\[[^\]<>{}[\]]{3,}\]/g;
 
@@ -30,8 +29,6 @@ function visibleText(html) {
 
 let failures = 0;
 for await (const file of walk(DIST)) {
-  const route = relative(DIST, file).split(sep);
-  if (route.some((part) => EXEMPT.includes(part))) continue;
   const hits = [...new Set(visibleText(await readFile(file, 'utf8')).match(PLACEHOLDER) ?? [])];
   if (hits.length) {
     failures += hits.length;
@@ -44,4 +41,4 @@ if (failures) {
   console.error(`\n${failures} text(s) provisional(s) visible(s) al lloc públic.`);
   process.exit(1);
 }
-console.log('✓ Cap text provisional visible fora de les pàgines legals.');
+console.log('✓ Cap text provisional visible al lloc.');
