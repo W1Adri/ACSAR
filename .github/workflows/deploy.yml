@@ -27,8 +27,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-        env:
-          PUBLIC_FORMSPREE_ID: ${{ vars.PUBLIC_FORMSPREE_ID }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

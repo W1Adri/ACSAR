@@ -14,13 +14,12 @@ const s = t(lang).join;
     <div class="cols">
       {s.cols.map((c, i) => {
         const target = ['#contacte', '#serveis', '#contacte'][i];
-        const topic = ['estudiants', '', 'patrocini'][i];
         return (
           <div class="col rv">
             <span class="n">{String(i + 1).padStart(2, '0')}</span>
             <h3>{c.h3}</h3>
             <p>{c.p}</p>
-            <a class="tlink" href={target} {...(topic ? { 'data-topic': topic } : {})}>{c.link} →</a>
+            <a class="tlink" href={target}>{c.link} →</a>
           </div>
         );
       })}

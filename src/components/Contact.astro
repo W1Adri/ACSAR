@@ -1,8 +1,10 @@
 ---
-import { t, routes, type Lang } from '../i18n';
-import { EMAIL, FORMSPREE_ACTION } from '../config';
+import { t, type Lang } from '../i18n';
+import { EMAIL, LINKEDIN_URL, INSTAGRAM_URL } from '../config';
+import Social from './Social.astro';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
+const hasSocial = Boolean(LINKEDIN_URL || INSTAGRAM_URL);
 const s = t(lang).contact;
 ---
 <section id="contacte">
@@ -12,110 +14,24 @@ const s = t(lang).contact;
       <div>
         <h2 class="rv" style="margin-bottom:1.5rem">{s.h2}</h2>
         <a class="mailto rv" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        <div class="btns rv contact-cta">
+          <a class="btn" href={`mailto:${EMAIL}`}>{s.cta} <span class="ar">→</span></a>
+        </div>
+        {hasSocial && (
+          <p class="follow rv">
+            <span class="mono">{t(lang).social.follow}</span>
+            <Social lang={lang} labels />
+          </p>
+        )}
+      </div>
+
+      <div class="contact-side">
         <address class="rv">
           <span class="mono">{s.hqLabel}</span>
           {s.hq1}<br />{s.hq2}<br />{s.hq3}
         </address>
         <p class="rv mono" style="color:var(--color-faint);margin-top:2rem;line-height:2">{s.topics}</p>
       </div>
-
-      <form class="rv" id="contact-form" action={FORMSPREE_ACTION} method="POST" data-email={EMAIL}>
-        <div class="field">
-          <label for="f-name">{s.fName}</label>
-          <input id="f-name" name="nom" type="text" autocomplete="name" required />
-        </div>
-        <div class="field">
-          <label for="f-email">{s.fEmail}</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" required />
-        </div>
-        <div class="field">
-          <label for="f-topic">{s.fTopic}</label>
-          <select id="f-topic" name="tema">
-            {s.topicOptions.map((o) => <option value={o.v}>{o.l}</option>)}
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-message">{s.fMessage}</label>
-          <textarea id="f-message" name="missatge" required></textarea>
-        </div>
-        <input type="hidden" name="_subject" value={s.subject} />
-        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <p class="formnote">
-          {s.privacyPre}<a href={routes.privacy[lang]}>{s.privacyLink}</a>.
-        </p>
-        <div class="btns">
-          <button class="btn" type="submit">
-            <span data-label>{s.send}</span> <span class="ar">→</span>
-          </button>
-        </div>
-        <p
-          class="formstate"
-          role="status"
-          aria-live="polite"
-          data-sending={s.sending}
-          data-sent={s.sent}
-          data-error={s.error}
-        ></p>
-      </form>
     </div>
   </div>
 </section>
-
-<script>
-  /* Enviament del formulari sense recarregar la pàgina, amb estats visibles.
-     Si no hi ha endpoint configurat, mostra directament l'alternativa per correu. */
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
-  if (form) {
-    const state = form.querySelector('.formstate') as HTMLElement;
-    const button = form.querySelector('button[type=submit]') as HTMLButtonElement;
-    const label = button.querySelector('[data-label]') as HTMLElement;
-    const sendLabel = label.textContent || '';
-    const email = form.dataset.email || '';
-
-    const mailtoFallback = () =>
-      ` <a href="mailto:${email}">${email}</a>.`;
-
-    const show = (kind: 'sending' | 'sent' | 'error') => {
-      const text = state.dataset[kind] || '';
-      state.className = `formstate is-${kind}`;
-      state.innerHTML = kind === 'error' ? text + mailtoFallback() : text;
-    };
-
-    /* Preselecció del tema des dels enllaços (data-topic) o de ?topic= */
-    const topic = document.getElementById('f-topic') as HTMLSelectElement | null;
-    const setTopic = (value: string | null) => {
-      if (!topic || !value) return;
-      if ([...topic.options].some((o) => o.value === value)) topic.value = value;
-    };
-    setTopic(new URLSearchParams(location.search).get('topic'));
-    document.querySelectorAll<HTMLAnchorElement>('a[data-topic]').forEach((a) =>
-      a.addEventListener('click', () => setTopic(a.dataset.topic || null)),
-    );
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (!form.action) {
-        show('error');
-        return;
-      }
-      button.disabled = true;
-      label.textContent = state.dataset.sending || sendLabel;
-      show('sending');
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' },
-        });
-        if (!res.ok) throw new Error(String(res.status));
-        show('sent');
-        form.reset();
-      } catch {
-        show('error');
-      } finally {
-        button.disabled = false;
-        label.textContent = sendLabel;
-      }
-    });
-  }
-</script>

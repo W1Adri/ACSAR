@@ -21,7 +21,6 @@ This policy explains how we process the personal data you provide through this w
 
 ## 02 · What data we process
 
-- **Contact form:** name, email address, subject and message content.
 - **Email:** whatever data you include when you write to us directly.
 - **Technical browsing data:** `[state whether the hosting provider keeps access logs with IP addresses and for how long]`.
 
@@ -31,7 +30,7 @@ We do not collect special category data, and we do not carry out profiling or au
 
 | | |
 |---|---|
-| Answering enquiries | Replying to the messages you send us. Legal basis: your consent when submitting the form (art. 6.1.a GDPR). |
+| Answering enquiries | Replying to the messages you send us. Legal basis: your consent when you write to us (art. 6.1.a GDPR). |
 | Handling applications | Assessing you joining the team if you write to take part. Legal basis: consent and pre-contractual measures (art. 6.1.a and 6.1.b GDPR). |
 | Companies and sponsors | Handling collaboration proposals. Legal basis: legitimate interest and pre-contractual measures (art. 6.1.f and 6.1.b GDPR). |
 
@@ -43,7 +42,6 @@ We keep the data for as long as needed to handle your request and, afterwards, f
 
 ## 05 · Recipients and processors
 
-- **Formspree** (Formspree, Inc., USA) processes contact form submissions. International transfers rely on `[standard contractual clauses / EU-US Data Privacy Framework — confirm before publishing]`.
 - `[hosting provider]`, for website hosting.
 - `[email provider]`, for receiving and managing messages.
 

@@ -95,10 +95,10 @@
         "l": "Subsistemas"
       },
       {
-        "v": "6",
+        "v": "+6",
         "n": 6,
-        "pre": "",
-        "l": "Universidades"
+        "pre": "+",
+        "l": "Nacionalidades"
       }
     ]
   },
@@ -143,16 +143,16 @@
         "lbl": "Órbita",
         "val": "LEO",
         "sub": "",
-        "p": "Órbita terrestre baja. Los parámetros orbitales se definirán según la oportunidad de lanzamiento."
+        "p": "Órbita terrestre baja. El segmento de tierra está en definición."
       }
     ]
   },
   "positioning": {
     "kicker": "Por qué importa",
-    "quotePre": "A octubre de 2026, ningún CubeSat ha demostrado públicamente la ",
+    "quotePre": "La ",
     "quoteEm": "generación de clave segura",
-    "quotePost": " en órbita.",
-    "src": "Es un objetivo abierto del sector, y es lo que persigue CLAU.",
+    "quotePost": " desde un CubeSat sigue siendo un reto abierto.",
+    "src": "Es uno de los objetivos pendientes del sector, y es lo que persigue CLAU.",
     "claims": [
       {
         "b": "Primer CubeSat de QKD liderado por una asociación universitaria en España",
@@ -329,39 +329,7 @@
     "hq2": "Campus del Baix Llobregat",
     "hq3": "08860 Castelldefels · Barcelona",
     "topics": "Estudiantes · Empresas · Patrocinio · Prensa",
-    "fName": "Nombre",
-    "fEmail": "Correo",
-    "fMessage": "Mensaje",
-    "send": "Enviar",
-    "privacyPre": "Al enviar este formulario aceptas la ",
-    "privacyLink": "política de privacidad",
-    "subject": "Contacto desde acsar.tech",
-    "fTopic": "Tema",
-    "topicOptions": [
-      {
-        "v": "estudiants",
-        "l": "Estudiantes"
-      },
-      {
-        "v": "serveis",
-        "l": "Servicios para empresas"
-      },
-      {
-        "v": "patrocini",
-        "l": "Patrocinio"
-      },
-      {
-        "v": "premsa",
-        "l": "Prensa"
-      },
-      {
-        "v": "altres",
-        "l": "Otros"
-      }
-    ],
-    "sending": "Enviando…",
-    "sent": "Mensaje enviado. Te responderemos lo antes posible.",
-    "error": "No se ha podido enviar. Escríbenos a"
+    "cta": "Escríbenos"
   },
   "footer": {
     "motto": "Sic · Semper · Astralis",
@@ -369,5 +337,10 @@
     "privacy": "Política de privacidad",
     "rights": "ACSAR — Asociación de Comunicaciones Satelitales Avanzadas y Resilientes",
     "place": "Campus del Baix Llobregat · Castelldefels"
+  },
+  "social": {
+    "follow": "Síguenos",
+    "linkedin": "ACSAR en LinkedIn",
+    "instagram": "ACSAR en Instagram"
   }
 }

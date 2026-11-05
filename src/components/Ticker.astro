@@ -4,10 +4,14 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const items = t(lang).ticker;
 ---
-<div class="ticker" aria-hidden="true">
+<div class="ticker">
   <ul>
-    {[...items, ...items].map((i) => (
+    {items.map((i) => (
       <li><b>{i.k}</b>{i.v}</li>
+    ))}
+    {/* còpia només per al desplaçament continu: els lectors de pantalla no l'han de llegir */}
+    {items.map((i) => (
+      <li aria-hidden="true"><b>{i.k}</b>{i.v}</li>
     ))}
   </ul>
 </div>

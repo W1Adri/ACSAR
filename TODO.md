@@ -24,14 +24,9 @@ Mentre no hi siguin, es mantenen els assets actuals:
 
 **Acció:** deixar els tres SVG a `brand/` del repositori i avisar.
 
-### Formulari de contacte
-- [ ] Crear el formulari a <https://formspree.io> i copiar l'ID de l'endpoint.
-- [ ] Posar-lo a `.env` com a `PUBLIC_FORMSPREE_ID` per a local.
-- [ ] Posar-lo a GitHub: *Settings → Secrets and variables → Actions → Variables →
-      `PUBLIC_FORMSPREE_ID`*.
-
-Sense ID el formulari no envia: mostra l'avís amb l'adreça de correu com a alternativa.
-Tota la resta (enviament sense recarregar, estats, honeypot, assumpte) ja funciona.
+### Formulari de contacte — ELIMINAT
+El formulari i Formspree s'han tret del lloc (nov 2026). La secció Contacte ofereix només el
+correu (`mailto:`), un botó «Escriu-nos →» i LinkedIn. No cal cap configuració externa.
 
 ### Dades legals
 Les pàgines legals porten `noindex` mentre tinguin buits. Buits actuals:
@@ -46,9 +41,10 @@ Les pàgines legals porten `noindex` mentre tinguin buits. Buits actuals:
 | avís legal (ca/es/en) | llicència dels continguts, si se n'adopta una |
 | privacitat (ca/es/en) | delegat de protecció de dades (o constatar que no n'hi ha) |
 | privacitat (ca/es/en) | registres d'accés del proveïdor: si en guarda i quant |
-| privacitat (ca/es/en) | termini de conservació de les dades del formulari |
-| privacitat (ca/es/en) | base de la transferència internacional de Formspree |
+| privacitat (ca/es/en) | termini de conservació de les dades dels correus rebuts |
 | privacitat (ca/es/en) | proveïdor de correu electrònic |
+| privacitat (ca/es/en) | llista de correu (actualitzar si se n'habilita una) |
+| privacitat (ca/es/en) | Google Fonts: autoallotjar o mantenir l'avís |
 | totes | data de l'última actualització |
 
 - [ ] Omplir-ho tot i **fer revisar els dos documents per algú amb criteri jurídic**.
@@ -60,9 +56,10 @@ Les pàgines legals porten `noindex` mentre tinguin buits. Buits actuals:
 
 - [ ] **Segment de terra.** Ara la web diu «estació òptica + estació RF (en definició)» i
       l'etiqueta del hero és «ACSAR · Castelldefels». Cal confirmar quina estació òptica
-      s'utilitzarà i si l'estació RF serà al campus, i actualitzar la targeta Òrbita.
-- [ ] **Universitats.** La xifra «6 universitats» ve de la vostra indicació; confirmeu-la
-      abans que sigui pública gaire temps.
+      s'utilitzarà i si l'estació RF serà al campus. La targeta Òrbita ja diu «El segment de
+      terra està en definició»; quan es concreti, actualitzar-la i revisar l'etiqueta del hero.
+- [ ] **Nacionalitats.** La web mostra «+6 Nacionalitats» (abans «6 universitats»).
+- [x] **UPC i EETAC.** No s'esmenten enlloc del lloc fins que hi hagi permís exprés.
 - [ ] **Serveis.** Repassar que els sis serveis llistats es poden prestar de debò i amb
       quina capacitat. Falta decidir si s'hi posen terminis o rangs de preu.
 - [ ] **Contrapartides de patrocini.** S'ha tret el text provisional de la web; quan es
@@ -72,10 +69,9 @@ Les pàgines legals porten `noindex` mentre tinguin buits. Buits actuals:
 
 ## 3. Revisió periòdica
 
-- [ ] **Frase de «Per què importa»**: «A octubre de 2026, cap CubeSat ha demostrat
-      públicament la generació de clau segura en òrbita.»
-      **QUBE-II (8U) es va llançar el maig de 2026 amb aquest objectiu.** Si publiquen
-      resultats, la frase deixa de ser certa i cal canviar-la, igual que la data.
+- [ ] **Frase de «Per què importa»**: «La generació de clau segura des d'un CubeSat és
+      encara un repte obert.» **QUBE-II (8U) es va llançar el maig de 2026 amb aquest
+      objectiu.** Si publiquen resultats, cal revisar-la.
       *Revisar cada trimestre, i abans de qualsevol nota de premsa.*
 
 ---

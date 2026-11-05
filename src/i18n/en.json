@@ -69,7 +69,7 @@
   "about": {
     "kicker": "About us",
     "h2": "A student<br>association that<br>builds satellites",
-    "p1": "ACSAR is a student association based at Campus del Baix Llobregat in Castelldefels. We design and develop advanced, resilient space communication systems.",
+    "p1": "ACSAR is a student association based at the Baix Llobregat Campus in Castelldefels. We design and develop advanced, resilient space communication systems.",
     "p2": "We are around fifty people and an international community: part of the team comes from outside Spain. We work with concurrent engineering, traceable requirements and real technical reviews — the same framework used to run a professional mission.",
     "p3pre": "ACSAR also operates as a ",
     "p3strong": "junior enterprise",
@@ -95,10 +95,10 @@
         "l": "Subsystems"
       },
       {
-        "v": "6",
+        "v": "+6",
         "n": 6,
-        "pre": "",
-        "l": "Universities"
+        "pre": "+",
+        "l": "Nationalities"
       }
     ]
   },
@@ -143,16 +143,16 @@
         "lbl": "Orbit",
         "val": "LEO",
         "sub": "",
-        "p": "Low Earth orbit. The orbital parameters will be set according to the launch opportunity."
+        "p": "Low Earth orbit. The ground segment is being defined."
       }
     ]
   },
   "positioning": {
     "kicker": "Why it matters",
-    "quotePre": "As of October 2026, no CubeSat has publicly demonstrated ",
-    "quoteEm": "secure key generation",
-    "quotePost": " in orbit.",
-    "src": "It is an open goal for the sector, and it is what CLAU is after.",
+    "quotePre": "",
+    "quoteEm": "Secure key generation",
+    "quotePost": " from a CubeSat is still an open challenge.",
+    "src": "It is one of the field's outstanding goals, and it is what CLAU is pursuing.",
     "claims": [
       {
         "b": "First QKD CubeSat led by a university association in Spain",
@@ -329,39 +329,7 @@
     "hq2": "Campus del Baix Llobregat",
     "hq3": "08860 Castelldefels · Barcelona · Spain",
     "topics": "Students · Companies · Sponsorship · Press",
-    "fName": "Name",
-    "fEmail": "Email",
-    "fMessage": "Message",
-    "send": "Send",
-    "privacyPre": "By sending this form you accept the ",
-    "privacyLink": "privacy policy",
-    "subject": "Contact from acsar.tech",
-    "fTopic": "Topic",
-    "topicOptions": [
-      {
-        "v": "estudiants",
-        "l": "Students"
-      },
-      {
-        "v": "serveis",
-        "l": "Services for companies"
-      },
-      {
-        "v": "patrocini",
-        "l": "Sponsorship"
-      },
-      {
-        "v": "premsa",
-        "l": "Press"
-      },
-      {
-        "v": "altres",
-        "l": "Other"
-      }
-    ],
-    "sending": "Sending…",
-    "sent": "Message sent. We'll get back to you as soon as we can.",
-    "error": "It could not be sent. Write to us at"
+    "cta": "Email us"
   },
   "footer": {
     "motto": "Sic · Semper · Astralis",
@@ -369,5 +337,10 @@
     "privacy": "Privacy policy",
     "rights": "ACSAR — Association for Advanced and Resilient Satellite Communications",
     "place": "Campus del Baix Llobregat · Castelldefels"
+  },
+  "social": {
+    "follow": "Follow us",
+    "linkedin": "ACSAR on LinkedIn",
+    "instagram": "ACSAR on Instagram"
   }
 }

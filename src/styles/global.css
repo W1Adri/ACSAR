@@ -345,28 +345,16 @@ p{margin:0 0 1.1em}
 .mailto:hover{background-size:100% 1px;color:var(--color-accent)}
 address{font-style:normal;color:var(--color-muted);margin-top:2.25rem;font-size:.9375rem}
 address .mono{display:block;color:var(--color-faint);margin-bottom:.5rem}
-form{display:grid;gap:1.75rem;border-top:1px solid var(--line);padding-top:2rem}
-.field input,.field textarea,.field select{width:100%;background:none;border:0;border-bottom:1px solid var(--line-2);
-  color:var(--color-text);font:inherit;font-size:1rem;padding:.6rem 0;transition:border-color .3s}
-.field select{appearance:none;cursor:pointer;padding-right:1.75rem;
-  background-image:linear-gradient(45deg,transparent 50%,var(--color-faint) 50%),
-    linear-gradient(135deg,var(--color-faint) 50%,transparent 50%);
-  background-position:calc(100% - 10px) 1.15rem,calc(100% - 5px) 1.15rem;
-  background-size:5px 5px,5px 5px;background-repeat:no-repeat}
-.field select option{background:var(--color-surface);color:var(--color-text)}
-.field textarea{resize:vertical;min-height:90px}
-.field input:focus,.field textarea:focus,.field select:focus{outline:0;border-color:var(--color-accent)}
-.formstate{margin:0;min-height:1.5em;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;line-height:1.7}
-.formstate.is-sending{color:var(--color-faint)}
-.formstate.is-sent{color:var(--color-accent)}
-.formstate.is-error{color:var(--color-ember)}
-.formstate a{color:inherit}
-button[type=submit][disabled]{opacity:.6;cursor:progress}
-.field label{display:block;color:var(--color-faint);font-family:var(--font-mono);font-size:.68rem;
-  letter-spacing:.18em;text-transform:uppercase;margin-bottom:.4rem}
-.hp{position:absolute;left:-9999px}
-.formnote{font-family:var(--font-mono);font-size:.68rem;line-height:1.9;color:var(--color-faint);margin:0}
-.formnote a{color:var(--color-accent)}
+.contact-cta{margin-top:1.75rem}
+.contact-side{border-top:1px solid var(--line);padding-top:2rem}
+.contact-side address{margin-top:0}
+.follow{margin-top:1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem}
+.follow .mono{color:var(--color-faint)}
+.follow .social{color:var(--color-muted);text-decoration:none;font-family:var(--font-mono);font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;transition:color .3s}
+.follow .social:hover{color:var(--color-accent)}
+.social{display:inline-flex;align-items:center;gap:.55rem}
+.social svg{flex:none;display:block}
 
 /* ---------- peu ---------- */
 .foot-wrap{border-top:1px solid var(--line);background:var(--color-ground-2);padding-block:clamp(2.5rem,6vw,4rem)}

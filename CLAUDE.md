@@ -69,15 +69,16 @@ línies fines, rebles tècnics subtils.
 ## Tècnica
 
 Astro + Tailwind CSS, estàtic, sense backend. Contingut a `src/i18n/*.json` (tres idiomes amb
-les mateixes claus). Pàgines legals en Markdown. Formulari preparat per a Formspree via
-`PUBLIC_FORMSPREE_ENDPOINT`. Vegeu `README.md` per a executar, editar i desplegar.
+les mateixes claus). Pàgines legals en Markdown. No hi ha formulari de contacte: només correu (`mailto:`) i
+LinkedIn (URLs a `src/config.ts`). Vegeu `README.md` per a executar, editar i desplegar.
 
 ## Buits oberts
 
-- `[N]` nacionalitats (`about.stats`).
-- `[vinculació universitària pendent de permís]` (`about.p1`).
-- `[paràmetres orbitals per confirmar]` (`mission.cards`).
-- `[per definir]` contrapartides de patrocini (`join.cols`).
-- `[ENDPOINT_FORMSPREE]` fins que es creï el formulari.
+- **Formulari de contacte eliminat** (nov 2026). Els contactes arriben només per correu.
+- **UPC i EETAC no s'esmenten** enlloc del lloc (vegeu la regla 3). `about.p1` diu només que
+  ACSAR té seu al Campus del Baix Llobregat.
+- **Segment de terra en definició**: la targeta Òrbita i el ticker ho diuen així. L'etiqueta
+  del hero (`hero.groundStation`, «ACSAR · CASTELLDEFELS») s'ha de revisar quan es concreti.
+- Contrapartides de patrocini: sense definir; no apareixen a la web.
 - Les pàgines legals tenen buits per a denominació legal, NIF, registre, allotjament,
   terminis i fur. **Necessiten revisió jurídica abans de publicar-se.**

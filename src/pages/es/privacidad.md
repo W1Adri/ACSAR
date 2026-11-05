@@ -21,7 +21,6 @@ Esta política explica cómo se tratan los datos personales que nos facilitas a 
 
 ## 02 · Qué datos tratamos
 
-- **Formulario de contacto:** nombre, dirección de correo electrónico, asunto y contenido del mensaje.
 - **Correo electrónico:** los datos que incluyas cuando nos escribes directamente.
 - **Datos técnicos de navegación:** `[indicar si el proveedor de alojamiento conserva registros de acceso con dirección IP y durante cuánto tiempo]`.
 
@@ -31,7 +30,7 @@ No recogemos datos de categorías especiales ni hacemos perfilado ni decisiones 
 
 | | |
 |---|---|
-| Atender consultas | Responder a los mensajes que nos envías. Base jurídica: tu consentimiento al enviar el formulario (art. 6.1.a RGPD). |
+| Atender consultas | Responder a los mensajes que nos envías. Base jurídica: tu consentimiento al escribirnos (art. 6.1.a RGPD). |
 | Gestionar candidaturas | Valorar tu incorporación al equipo si nos escribes para participar. Base jurídica: consentimiento y medidas precontractuales (art. 6.1.a y 6.1.b RGPD). |
 | Empresas y patrocinadores | Gestionar propuestas de colaboración. Base jurídica: interés legítimo y medidas precontractuales (art. 6.1.f y 6.1.b RGPD). |
 
@@ -43,7 +42,6 @@ Conservamos los datos el tiempo necesario para atender tu solicitud y, después,
 
 ## 05 · Destinatarios y encargados del tratamiento
 
-- **Formspree** (Formspree, Inc., EE. UU.) procesa el envío del formulario de contacto. Las transferencias internacionales se basan en `[cláusulas contractuales tipo / marco de privacidad de datos UE-EE. UU. — confirmar antes de publicar]`.
 - `[proveedor de alojamiento]`, para el servicio de alojamiento del sitio web.
 - `[proveedor de correo electrónico]`, para la recepción y gestión de los mensajes.
 
